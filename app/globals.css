@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Stick&family=Zen+Kurenaido&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Zen Kurenaido", sans-serif;
+  font-style: normal;
+}
+
+:root {
+  --foreground-rgb: #0D0D0D;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: #0D0D0D;
+  }
+}
+
+body {
+  color: white;
+  background: #0D0D0D;
+}
+
+h1{
+  font-size: 24px;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* globals.css */
+.honeycomb {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.hexagon {
+  width: 100px;
+  height: 100px;
+  background: red;
+  clip-path: polygon(
+    25% 6.7%,
+    75% 6.7%,
+    100% 50%,
+    75% 93.3%,
+    25% 93.3%,
+    0% 50%
+  );
+}
+
