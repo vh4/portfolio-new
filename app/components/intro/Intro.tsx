@@ -10,14 +10,9 @@ import { SiNextdotjs, SiNodedotjs, SiPhp, SiTypescript } from "react-icons/si"
 export const Intro = () => {
 	return(
 		<>
-		  <div className="mt-24 grid grid-cols-5 gap-2">
-			<div className="relative inline-block">
-			<div className="relative w-50 h-50 flex justify-center items-center rounded-full p-2">
-				<div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-green-400 to-blue-500 rounded-full blur-2xl opacity-50"></div>
-				<Image src="/profile.jpeg" className="rounded-full shadow-xl z-50" alt="profile" width={150} height={150}/>
-			</div>
-			</div>
-			<div className="text-md px-4 col-span-4">
+		 <div className="pl-16 mt-6"><h1 className="judul text-5xl font-extrabold">Introduction</h1></div>
+		  <div className="pl-16 w-[800px] mt-12 grid grid-cols-5 gap-6">
+			<div className="col-span-4 text-md px-4">
 				{/* headers */}
 				{/* <div><h1>Fathoni Waseso Jati</h1></div> */}
 				{/* body */}
@@ -28,28 +23,34 @@ export const Intro = () => {
 				<div className="mt-8">
 					{/* make button download cv */}
 					<div className="flex space-x-8">
-						<button className="text-xs text-white px-4 py-1.5 rounded-lg outline outline-white hover:outline-orange-400">ダウンロードCV</button>
+						<button className="text-xs text-black px-4 py-1.5 rounded-lg outline outline-black hover:outline-orange-400">ダウンロードCV</button>
 						<div className="flex space-x-1.5 items-center">
-						<a href="" className="border rounded-full p-1 hover:bg-orange-400 hover:border-orange-400 hover:text-white"><CiInstagram size={18} className="text-white"/></a>
-						<a href="" className="border rounded-full p-1 hover:bg-orange-400 hover:border-orange-400 hover:text-white"><CiLinkedin size={18} className="text-white"/></a>
-						<a href="" className="border rounded-full p-1 hover:bg-orange-400 hover:border-orange-400 hover:text-white"><CiMail size={18} className="text-white" /> </a>
-						<a href="" className="border rounded-full p-1 hover:bg-orange-400 hover:border-orange-400 hover:text-white"><PiWhatsappLogoThin size={18} className="text-white" /></a>
+						<a href="" className="border rounded-full p-1 hover:bg-orange-400 hover:border-orange-400 hover:"><CiInstagram size={18} className=""/></a>
+						<a href="" className="border rounded-full p-1 hover:bg-orange-400 hover:border-orange-400 hover:"><CiLinkedin size={18} className=""/></a>
+						<a href="" className="border rounded-full p-1 hover:bg-orange-400 hover:border-orange-400 hover:"><CiMail size={18} className="" /> </a>
+						<a href="" className="border rounded-full p-1 hover:bg-orange-400 hover:border-orange-400 hover:"><PiWhatsappLogoThin size={18} className="" /></a>
 						</div>
 					</div>
-					<div className="mt-16">
+					<div className="col relative inline-block mt-8">
+					<div className="relative w-100 h-100 flex justify-center items-center rounded-full p-2">
+						<div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-green-400 to-blue-500 rounded-full blur-2xl opacity-50"></div>
+						<Image src="/profile.jpeg" className="rounded-full shadow-xl z-50" alt="profile" width={100} height={100}/>
+					</div>
+					</div>
+					<div className="mt-8">
 						<div><div>使用したテクノロジー</div></div>
 						<div className="mt-4 flex space-x-2 items-center">
-							<SiNextdotjs size={20} className="text-white"/>
-							<SiNodedotjs size={20} className="text-white"/>
-							<SiTypescript size={20} className="text-white"/>
-							<RiJavaLine size={20} className="text-white"/>
-							<BiLogoPostgresql size={20} className="text-white"/>
-							<SiPhp size={20} className="text-white"/>
-							<FaLaravel size={20} className="text-white"/>
-							<FaDocker size={20} className="text-white"/>
-							<DiGoogleCloudPlatform size={20} className="text-white"/>
-							<RiTailwindCssLine size={20} className="text-white"/>
-							<FaGitlab size={20} className="text-white"/>
+							<SiNextdotjs size={20} className=""/>
+							<SiNodedotjs size={20} className=""/>
+							<SiTypescript size={20} className=""/>
+							<RiJavaLine size={20} className=""/>
+							<BiLogoPostgresql size={20} className=""/>
+							<SiPhp size={20} className=""/>
+							<FaLaravel size={20} className=""/>
+							<FaDocker size={20} className=""/>
+							<DiGoogleCloudPlatform size={20} className=""/>
+							<RiTailwindCssLine size={20} className=""/>
+							<FaGitlab size={20} className=""/>
 						</div>
 					</div>
 					{/* <div className="mt-12 text-center">

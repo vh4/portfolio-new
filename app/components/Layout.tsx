@@ -4,6 +4,10 @@ import { IoTerminalOutline } from 'react-icons/io5';
 import { usePathname } from "next/navigation"
 import { FaApple } from "react-icons/fa"
 import Link from "next/link"
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/mousewheel';
 
 interface LayoutProps {
   children: ReactNode;
@@ -64,7 +68,7 @@ const Layout = ({ children }: LayoutProps) => {
 					</div>
 				</div>
 				{/* body terminal */}
-				<div className="px-4 xl:px-8 mt-4 xl:mt-8 mx-4 xl:mx-8">
+				<div className="mt-4 xl:mt-8 mx-4 xl:mx-8">
 					{children}
 				</div>				
 			</div>

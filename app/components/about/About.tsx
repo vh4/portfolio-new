@@ -11,10 +11,10 @@ export default function About() {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto max-w-[600px]">
       <div className="pb-12 rounded-lg">
-        <div className="mt-6">
-          <h2 className="text-xl font-semibold mb-2">Aboutアバウト</h2>
+        <div className="mt-6"><h1 className="judul text-5xl font-extrabold -ml-2">About</h1></div>
+        <div className="mt-10">
           <p>
             Aboutのはじめまして。トニーと申します。今、仕事のためにスラバヤに住んでいます。ソフトウェアエンジニアに強い情熱を持っており、仕事やフリーランスのプロジェクトでそれを活かしています。私についてもっと知りたい場合は、以下をご覧ください。
           </p>
@@ -34,11 +34,11 @@ export default function About() {
             <li className="flex items-center space-x-3">
               <FaGlobe className="" /> <span>国: インドネシア</span>
             </li>
-            <li className="flex items-center space-x-3">
-              <FaMapMarkerAlt className="" /> <span>住所: 東ジャワ州, スラバヤ</span>
-            </li>
             {showMore && (
               <>
+                <li className="flex items-center space-x-3">
+                  <FaMapMarkerAlt className="" /> <span>住所: 東ジャワ州, スラバヤ</span>
+                </li>             
                 <li className="flex items-center space-x-3">
                   <FaLaptopCode className="" /> <span>職業: フルスタックデベロッパー</span>
                 </li>
@@ -81,11 +81,11 @@ export default function About() {
 		  <div className='mt-8'>
 			<div className='flex space-x-4 items-center'>
 				<div className='flex space-x-2 items-center'>
-					<MdEmail size={18} className='p-1 border rounded-full' />
+					<MdEmail size={24} className='p-1 border border-black rounded-full' />
 					<div>fathoniwasesojati@gmail.com</div>
 				</div>
 				<div className='flex space-x-2 items-center'>
-					<PiPhone size={18} className='p-1 border rounded-full'/>
+					<PiPhone size={24} className='p-1 border border-black rounded-full'/>
 					<div>(+62) 898-537-9396</div>
 				</div>
 			</div>
