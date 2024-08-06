@@ -40,16 +40,16 @@ export default function About() {
       gsap.to(containerRef.current, { y: 0, duration: 0.5 });
     } else {
       gsap.to(detailsRef.current, { height: 0, duration: 0.5, opacity: 0 });
-      gsap.to(containerRef.current, { y: "-4rem", duration: 0.5 });
+      // gsap.to(containerRef.current, { y: "-4rem", duration: 0.5 });
     }
   }, [showMore]);
 
   return (
     <>
-      <div ref={containerRef} className={`min-h-screen flex items-center`}>
-        <div className="container max-w-[600px]">
-          <div className="pb-12 rounded-lg">
-            <div className="mt-8">
+      <div ref={containerRef} className={`min-h-screen flex mt-16`}>
+        <div className="container max-w-[600px] max-h-[600px] overflow-y-scroll scroll-none">
+          <div className="">
+            <div className="">
               <h1 className="judul text-4xl font-extrabold -ml-2">About</h1>
             </div>
             <div className="mt-4">
@@ -57,7 +57,7 @@ export default function About() {
                 Aboutのはじめまして。トニーと申します。今、仕事のためにスラバヤに住んでいます。ソフトウェアエンジニアに強い情熱を持っており、仕事やフリーランスのプロジェクトでそれを活かしています。私についてもっと知りたい場合は、以下をご覧ください。
               </p>
             </div>
-            <div className="mt-6">
+            <div className="mt-8">
               <h2 className="text-xl font-semibold mb-2">詳細</h2>
               <ul className="list-disc pl-5 space-y-1">
                 <li className="flex items-center space-x-3">

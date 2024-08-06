@@ -10,8 +10,8 @@ import { SiNextdotjs, SiNodedotjs, SiPhp, SiTypescript } from "react-icons/si"
 export const Intro = () => {
 	return(
 		<>
-		  <div className="min-h-screen flex items-center -translate-y-16">
-			<div className="pl-16 w-[800px] grid grid-cols-5">
+		  <div className="min-h-screen flex mt-16">
+			<div className="pl-28 w-[800px] grid grid-cols-5">
 				<div className="col-span-4 text-md px-4">
 					{/* headers */}
 					{/* <div><h1>Fathoni Waseso Jati</h1></div> */}

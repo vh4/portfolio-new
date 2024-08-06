@@ -180,10 +180,10 @@ return (
             </div>
           </div>
         </div> */}
-        <div className="mt-[100px] min-h-[700px] max-h-[700px] container mx-auto">
+        <div className="mt-[120px] min-h-[700px] max-h-[700px] container mx-auto">
           <div className="">
-             <div className="grid grid-cols-2 gap-24">
-                <div className="ml-24 col max-h-[250px] min-h-[250px] mt-4">
+             <div className="grid grid-cols-2 gap-12">
+                <div className="ml-24 col max-h-[250px] min-h-[250px] mt-12">
                   <div ref={deskription} className="flex p-4 space-x-2">
                     <div className="text-xs">{pilihIndex + 1}.</div>
                     <div className="">
@@ -212,7 +212,7 @@ return (
                       <div className="flex space-x-2 ">
                         <div className="judul text-xs" key={i}>{i + 1}.</div>
                         <div>
-                          <div className="judul text-2xl" key={i}>{e.judul}</div>
+                          <div className="judul text-xl" key={i}>{e.judul}</div>
                           <div className="judul text-xs" key={i}>{category[e.category - 1].name}</div>
                         </div>
                       </div>

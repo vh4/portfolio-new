@@ -67,8 +67,6 @@ export default function Home() {
 
     const onSetTranslate = () => {
       if (showIntro.current && showAbout.current) {
-        const showIntroRect = showIntro.current.getBoundingClientRect();
-        const showAboutRect = showAbout.current.getBoundingClientRect();
         const swiperWidth = swiper.wrapperEl.clientWidth;
         const swiperTranslate = swiper.translate;
         const swiperRightEdge = swiperTranslate + swiperWidth;
@@ -192,9 +190,9 @@ export default function Home() {
         <SwiperSlide className='w-full min-h-screen flex items-center justify-center'>
           <Homes />
         </SwiperSlide>
-        <SwiperSlide className='w-full min-h-screen flex items-center justify-center'>
+        <SwiperSlide className='w-full min-h-screen flex justify-center'>
           <div className="grid grid-cols-2 gap-12 min-h-screen">
-              <div ref={showIntro} className="col flex justify-center">
+              <div ref={showIntro} className="col flex justify-centerr">
                 <div className="relative">
                   <Intro />
                   <div  className="absolute top-1/2 right-0 transform -translate-y-44 translate-x-1/2  bg-white flex items-center justify-center border-r min-h-[200px]">
