@@ -11,15 +11,15 @@ export const Intro = () => {
 	return(
 		<>
 		  <div className="min-h-screen flex mt-16">
-			<div className="pl-28 w-[800px] grid grid-cols-5">
+			<div className="grid grid-cols-5">
 				<div className="col-span-4 text-md px-4">
 					{/* headers */}
 					{/* <div><h1>Fathoni Waseso Jati</h1></div> */}
 					{/* body */}
 				    <div className=""><h1 className="judul text-4xl font-extrabold -ml-2">Introduction</h1></div>
-					<div className="mt-6"><div className="font-bold">自己紹介します,</div></div>
-					<div className="">
-						<div>I:m フルスタックデベロッパーとして2～3年の経験があります。エンドツーエンドのREST APIの構築とユーザーフレンドリーなウェブフロントエンドの開発を専門としており、開発プロセス全体にわたって効率的なコード構造を確保します。経験豊富なウェブデベロッパーとして、高度なウェブ開発の全ての段階に精通しており、ユーザーインターフェースのデザイン、テスト、およびデバッグのプロセスに関する知識を持っています.</div>
+					<div className="mt-4">
+						<div>I:m フルスタックデベロッパーとして2～3年の経験があります。エンドツーエンドのREST APIの構築とユーザーフレンドリーなウェブフロントエンドの開発を専門としており、開発プロセス全体にわたって効率的なコード構造を確保します。</div>
+						<div className="mt-6">経験豊富なウェブデベロッパーとして、高度なウェブ開発の全ての段階に精通しており、ユーザーインターフェースのデザイン、テスト、およびデバッグのプロセスに関する知識を持っています.</div>
 					</div>
 					<div className="mt-8">
 						{/* make div download cv */}

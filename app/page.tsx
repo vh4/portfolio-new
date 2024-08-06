@@ -1,4 +1,3 @@
-// pages/index.js
 "use client";
 import "./globals.css";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -20,25 +19,26 @@ SwiperCore.use([Navigation, Mousewheel, FreeMode]);
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  const swiperRef:any = useRef(null);
-  const cursorRef:any = useRef(null);
-  const followerRef:any = useRef(null);
+  const swiperRef = useRef(null);
+  const cursorRef = useRef(null);
+  const followerRef = useRef(null);
 
-  const enterHideLoop:any = useRef(null);
-  const showIntro:any = useRef(null);
-  const showAbout:any = useRef(null);
+  const enterHideLoop = useRef(null);
+  const showIntro = useRef(null);
+  const showAbout = useRef(null);
+
   useEffect(() => {
-    const handleGestureStart = (e: Event) => {
+    const handleGestureStart = (e) => {
       e.preventDefault();
       document.body.style.zoom = '0.99';
     };
 
-    const handleGestureChange = (e: Event) => {
+    const handleGestureChange = (e) => {
       e.preventDefault();
       document.body.style.zoom = '0.99';
     };
 
-    const handleGestureEnd = (e: Event) => {
+    const handleGestureEnd = (e) => {
       e.preventDefault();
       document.body.style.zoom = '1';
     };
@@ -54,9 +54,7 @@ export default function Home() {
     };
   }, []);
 
-
   useEffect(() => {
-
     const swiper = swiperRef.current.swiper;
     if (!swiper) return;
 
@@ -69,28 +67,25 @@ export default function Home() {
         // Show Intro when Swiper's right edge is near showIntro
         if (swiperRightEdge < 1920) {
           if((swiperRightEdge - 1080) <= 0){
-            gsap.to(showIntro.current, { x:0, opacity: 1, duration: 1 });
-          }else{
-            gsap.to(showIntro.current, { x:swiperRightEdge - 1080 , opacity: 1, duration: 1 });
-
+            gsap.to(showIntro.current, { x: 0, opacity: 1, duration: 1 });
+          } else {
+            gsap.to(showIntro.current, { x: swiperRightEdge - 1080, opacity: 1, duration: 1 });
           }
         } else {
-          gsap.to(showIntro.current, { x:0,opacity: 0, duration: 1 });
+          gsap.to(showIntro.current, { x: 0, opacity: 0, duration: 1 });
         }
 
         // Show About when Swiper's right edge is near showAbout
         if (swiperRightEdge < 1920) {
           if((swiperRightEdge - 1080) <= 0){
-            gsap.to(showAbout.current, { x:0, opacity: 1, duration: 1 });
-          }else{
-            gsap.to(showAbout.current, { x:swiperRightEdge - 1080 , opacity: 1, duration: 1 });
-
+            gsap.to(showAbout.current, { x: 0, opacity: 1, duration: 1 });
+          } else {
+            gsap.to(showAbout.current, { x: swiperRightEdge - 1080, opacity: 1, duration: 1 });
           }
         } else {
-          gsap.to(showAbout.current, { x:0,opacity: 0, duration: 1 });
+          gsap.to(showAbout.current, { x: 0, opacity: 0, duration: 1 });
         }
       }
-
     };
 
     swiper.on('setTranslate', onSetTranslate);
@@ -137,7 +132,7 @@ export default function Home() {
       }
     });
 
-    const onScroll = (event:any) => {
+    const onScroll = (event) => {
       tl.duration(Math.abs(event.deltaY) / 1000);
       tl.play();
     };
@@ -147,7 +142,7 @@ export default function Home() {
     const cursor = cursorRef.current;
     const follower = followerRef.current;
 
-    const moveCursor = (event:any) => {
+    const moveCursor = (event) => {
       gsap.to(cursor, { left: event.clientX, top: event.clientY, duration: 0.1 });
       gsap.to(follower, { left: event.clientX, top: event.clientY, duration: 0.2 });
     };
@@ -160,7 +155,6 @@ export default function Home() {
       }
       document.removeEventListener("mousemove", moveCursor);
       swiper.off('setTranslate', onSetTranslate);
-
     };
 
   }, []);
@@ -182,17 +176,17 @@ export default function Home() {
         <SwiperSlide className='w-full min-h-screen flex items-center justify-center'>
           <Homes />
         </SwiperSlide>
-        <SwiperSlide className='w-full min-h-screen flex justify-center'>
-          <div className="grid grid-cols-2 gap-12 min-h-screen">
-              <div ref={showIntro} className="col flex justify-centerr">
+        <SwiperSlide className='w-full min-h-screen flex justify-center container mx-auto'>
+          <div className="grid grid-cols-2 gap-6 min-h-screen mx-24">
+              <div ref={showIntro} className="col flex justify-center">
                 <div className="relative">
                   <Intro />
                   <div  className="absolute top-1/2 right-0 transform -translate-y-44 translate-x-1/2  bg-white flex items-center justify-center border-r min-h-[200px]">
                   </div>
                 </div>
               </div>
-              <div className="col flex justify-center">
-                <div ref={showAbout} className="show-abouts">
+              <div ref={showAbout} className="col flex justify-center">
+                <div className="relative">
                     <About />
                 </div>
               </div>

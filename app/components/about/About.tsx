@@ -44,7 +44,7 @@ export default function About() {
   return (
     <>
       <div ref={containerRef} className={`min-h-screen flex mt-16`}>
-        <div className="container max-w-[600px] max-h-[600px] overflow-y-scroll scroll-none">
+        <div className="container max-w-[600px] max-h-[550px] overflow-y-scroll scroll-none">
           <div className="">
             <div className="">
               <h1 className="judul text-4xl font-extrabold -ml-2">About</h1>
