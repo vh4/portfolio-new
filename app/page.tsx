@@ -191,7 +191,7 @@ export default function Home() {
               <div ref={showIntro} className="col flex justify-center">
                 <div className="relative">
                   <Intro />
-                  <div  className="absolute top-1/2 right-0 transform -translate-y-44 translate-x-1/2  bg-white flex items-center justify-center border-r min-h-[200px]">
+                  <div  className="absolute top-1/2 right-0 transform -translate-y-44 translate-x-1/2 border-black flex items-center justify-center border-r min-h-[200px]">
                   </div>
                 </div>
               </div>

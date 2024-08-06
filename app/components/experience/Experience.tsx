@@ -135,6 +135,8 @@ const dataJapaneseVersion = [
 return (
     <>
       <div className={`min-h-screen min-w-screen flex items-center`}>
+        <div  className="absolute top-1/2 left-0 transform -translate-y-36 translate-x-1/2 border-black flex items-center justify-center border-r min-h-[200px]">
+        </div>
         <div className="absolute top-0 right-0 min-w-[1080px] max-w-[1080px] min-h-[50px] border-b border-black translate-y-8">
           <div className="flex justify-between">
             <div className="flex space-x-2">
@@ -162,11 +164,11 @@ return (
                     </div>
                   </div>
                 </div>
-                <div ref={containerRef}  className="col min-h-[700px] max-h-[700px] overflow-auto scroll-none">
+                <div ref={containerRef}  className="col min-h-[550px] max-h-[550px] overflow-auto scroll-none">
                   {dataJapaneseVersion.map((e, i) => (
                     <div
                       key={i}
-                      className={`px-4 py-6 ${i === pilihIndex ? 'opacity-50' : ''}`} // Highlight current item
+                      className={`px-4 py-6 ${i === pilihIndex ? 'border-b max-w-[700px] border-black' : ''}`} // Highlight current item
                       onMouseOver={() => {
                         gsap.fromTo(
                           deskription.current,
