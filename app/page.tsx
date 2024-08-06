@@ -19,26 +19,26 @@ SwiperCore.use([Navigation, Mousewheel, FreeMode]);
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  const swiperRef = useRef(null);
-  const cursorRef = useRef(null);
-  const followerRef = useRef(null);
+  const swiperRef:any = useRef(null);
+  const cursorRef:any = useRef(null);
+  const followerRef:any = useRef(null);
 
-  const enterHideLoop = useRef(null);
-  const showIntro = useRef(null);
-  const showAbout = useRef(null);
+  const enterHideLoop:any = useRef(null);
+  const showIntro:any = useRef(null);
+  const showAbout:any = useRef(null);
 
   useEffect(() => {
-    const handleGestureStart = (e) => {
+    const handleGestureStart = (e:any) => {
       e.preventDefault();
       document.body.style.zoom = '0.99';
     };
 
-    const handleGestureChange = (e) => {
+    const handleGestureChange = (e:any) => {
       e.preventDefault();
       document.body.style.zoom = '0.99';
     };
 
-    const handleGestureEnd = (e) => {
+    const handleGestureEnd = (e:any) => {
       e.preventDefault();
       document.body.style.zoom = '1';
     };
@@ -47,7 +47,7 @@ export default function Home() {
     document.addEventListener('gesturechange', handleGestureChange);
     document.addEventListener('gestureend', handleGestureEnd);
 
-    const handleWheel = (event) => {
+    const handleWheel = (event:any) => {
       if (event.ctrlKey) {
         event.preventDefault();
         window.scrollBy(0, event.deltaY);
@@ -142,7 +142,7 @@ export default function Home() {
       }
     });
 
-    const onScroll = (event) => {
+    const onScroll = (event:any) => {
       tl.duration(Math.abs(event.deltaY) / 1000);
       tl.play();
     };
@@ -152,7 +152,7 @@ export default function Home() {
     const cursor = cursorRef.current;
     const follower = followerRef.current;
 
-    const moveCursor = (event) => {
+    const moveCursor = (event:any) => {
       gsap.to(cursor, { left: event.clientX, top: event.clientY, duration: 0.1 });
       gsap.to(follower, { left: event.clientX, top: event.clientY, duration: 0.2 });
     };
