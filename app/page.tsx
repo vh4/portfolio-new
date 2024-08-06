@@ -1,10 +1,8 @@
 // pages/index.js
 "use client";
-import { BsArrowRight } from "react-icons/bs";
 import "./globals.css";
-import { IoEllipsisVerticalOutline } from "react-icons/io5";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Scrollbar, Mousewheel, FreeMode } from 'swiper/modules';
+import { Navigation, Mousewheel, FreeMode } from 'swiper/modules';
 import SwiperCore from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -15,7 +13,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Homes from "./components/home/Home";
 import { Intro } from "./components/intro/Intro";
 import About from "./components/about/About";
-import { RxDoubleArrowRight } from "react-icons/rx";
 import Experience from "./components/experience/Experience";
 
 SwiperCore.use([Navigation, Mousewheel, FreeMode]);
@@ -46,12 +43,10 @@ export default function Home() {
       document.body.style.zoom = '1';
     };
 
-    // Add event listeners
     document.addEventListener('gesturestart', handleGestureStart);
     document.addEventListener('gesturechange', handleGestureChange);
     document.addEventListener('gestureend', handleGestureEnd);
 
-    // Cleanup function to remove event listeners
     return () => {
       document.removeEventListener('gesturestart', handleGestureStart);
       document.removeEventListener('gesturechange', handleGestureChange);
@@ -98,7 +93,6 @@ export default function Home() {
 
     };
 
-    // Listen to `setTranslate` event, which is called whenever Swiper's translate value changes
     swiper.on('setTranslate', onSetTranslate);
 
     if (enterHideLoop.current) {
@@ -115,7 +109,6 @@ export default function Home() {
       );
     }
 
-    // GSAP Animation for the slow mouse over effect
     const elements = document.querySelectorAll(".text-container h1, .text-container span");
 
     elements.forEach(element => {
@@ -135,7 +128,6 @@ export default function Home() {
 
     const tl = gsap.timeline({ paused: true });
 
-    // Animation for slow motion effect
     tl.to(swiper.wrapperEl, {
       duration: 1.5,
       ease: 'power1.out',

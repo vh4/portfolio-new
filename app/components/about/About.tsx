@@ -15,8 +15,6 @@ import {
   FaAngleDown,
   FaAngleUp,
 } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { PiPhone } from "react-icons/pi";
 import gsap from "gsap";
 
 export default function About() {
@@ -40,7 +38,6 @@ export default function About() {
       gsap.to(containerRef.current, { y: 0, duration: 0.5 });
     } else {
       gsap.to(detailsRef.current, { height: 0, duration: 0.5, opacity: 0 });
-      // gsap.to(containerRef.current, { y: "-4rem", duration: 0.5 });
     }
   }, [showMore]);
 

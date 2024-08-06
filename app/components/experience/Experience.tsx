@@ -1,26 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  FaBriefcase,
-  FaUser,
-  FaCalendar,
-  FaVenusMars,
-  FaGlobe,
-  FaMapMarkerAlt,
-  FaLaptopCode,
-  FaWeight,
-  FaRulerVertical,
-  FaBook,
-  FaUniversity,
-  FaAngleDown,
-  FaAngleUp,
-} from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { PiPhone, PiVoicemail } from "react-icons/pi";
 
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Mousewheel } from "swiper/modules";
 import SwiperCore from "swiper";
-import Image from "next/image";
 import gsap from "gsap";
 
 // Install modules
@@ -47,7 +28,7 @@ export default function Experience() {
         const nextIndex = (prevIndex + 1) % dataJapaneseVersion.length;
         setPilih(dataJapaneseVersion[nextIndex]);
         gsap.to(containerRef.current, {
-          scrollTop: nextIndex * 100, // Adjust the multiplier based on item height
+          scrollTop: nextIndex * 100,
           duration: 1,
           ease: 'power2.inOut',
         });
@@ -60,7 +41,7 @@ export default function Experience() {
 
         return nextIndex;
       });
-    }, 3000); // Change the interval time as needed
+    }, 3000); 
   };
 
   const stopAutoScroll = () => {
@@ -158,7 +139,7 @@ return (
           <div className="flex justify-between">
             <div className="flex space-x-2">
               <div className="text-xs">B.</div>
-              <div className="judul text-4xl">PROJECT'S</div>
+              <div className="judul text-4xl">PROJECTS</div>
             </div>
             <div className="flex space-x-2 mr-12 items-end mb-2">
               <div className="judul text-xs">All</div>
@@ -170,16 +151,6 @@ return (
             </div>
           </div>
         </div>
-        {/* <div className="container mx-auto">
-          <div className="flex items-center space-x-4">
-            <div className="flex-shrink-0">
-              <div className="word-tittle">WORK EXPERIENCE</div>
-            </div>
-            <div className="w-full border-l fade-in">
-              <div className="min-h-[400px] px-6 fade-in"></div>
-            </div>
-          </div>
-        </div> */}
         <div className="mt-[120px] min-h-[700px] max-h-[700px] container mx-auto">
           <div className="">
              <div className="grid grid-cols-2 gap-12">
@@ -187,7 +158,6 @@ return (
                   <div ref={deskription} className="flex p-4 space-x-2">
                     <div className="text-xs">{pilihIndex + 1}.</div>
                     <div className="">
-                    {/* <Image className="max-h-[250px] min-h-[250px]  object-cover" alt={pilih.image} src={pilih.image} width={900} height={300} /> */}
                     <div className="text-md tracking-wider">{pilih.description}</div>
                     </div>
                   </div>
@@ -207,7 +177,7 @@ return (
                         setPilih(e);
                         setpilihIndex(i);
                       }}
-                      onMouseOut={startAutoScroll} // Restart auto-scroll when mouse leaves
+                      onMouseOut={startAutoScroll} 
                     >
                       <div className="flex space-x-2 ">
                         <div className="judul text-xs" key={i}>{i + 1}.</div>
