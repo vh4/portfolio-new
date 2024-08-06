@@ -33,28 +33,28 @@ const Layout = ({ children }: LayoutProps) => {
 						<div className="">Portfolio</div>
 						<Link href="/" className='pl-2'>
 							<small
-							className={`cursor-pointer ${router == "/" ? "py-0.5 px-1 rounded-full bg-white text-black" : "text-white"}`}
+							className={` ${router == "/" ? "py-0.5 px-1 rounded-full bg-white text-black" : "text-white"}`}
 							>
 							イントロ
 							</small>
 						</Link>
 						<Link href="/about" className='pl-2'>
 							<small
-							className={`cursor-pointer ${router == "/about" ? "py-0.5 px-1 rounded-full bg-white text-black" : "text-white"}`}
+							className={` ${router == "/about" ? "py-0.5 px-1 rounded-full bg-white text-black" : "text-white"}`}
 							>
 							アバウト
 							</small>
 						</Link>
 						<Link href="/skill" className='pl-2'>
 							<small
-							className={`cursor-pointer ${router == "/skill" ? "py-0.5 px-1 rounded-full bg-white text-black" : "text-white"}`}
+							className={` ${router == "/skill" ? "py-0.5 px-1 rounded-full bg-white text-black" : "text-white"}`}
 							>
 							スキル
 							</small>
 						</Link>
 						<Link href="/experience" className='pl-2'>
 							<small
-							className={`cursor-pointer ${router == "/experience" ? "py-0.5 px-1 rounded-full bg-white text-black" : "text-white"}`}
+							className={` ${router == "/experience" ? "py-0.5 px-1 rounded-full bg-white text-black" : "text-white"}`}
 							>
 							経歴
 							</small>

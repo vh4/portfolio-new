@@ -11,23 +11,111 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Homes from "./components/home/Home";
 import { Intro } from "./components/intro/Intro";
 import About from "./components/about/About";
+import { RxDoubleArrowRight } from "react-icons/rx";
+import Experience from "./components/experience/Experience";
 
-// Import Swiper core and required modules
 SwiperCore.use([Navigation, Mousewheel, FreeMode]);
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const swiperRef:any = useRef(null);
-  const cursorRef = useRef(null);
-  const followerRef = useRef(null);
+  const cursorRef:any = useRef(null);
+  const followerRef:any = useRef(null);
+
+  const enterHideLoop:any = useRef(null);
+  const showIntro:any = useRef(null);
+  const showAbout:any = useRef(null);
+  useEffect(() => {
+    const handleGestureStart = (e: Event) => {
+      e.preventDefault();
+      document.body.style.zoom = '0.99';
+    };
+
+    const handleGestureChange = (e: Event) => {
+      e.preventDefault();
+      document.body.style.zoom = '0.99';
+    };
+
+    const handleGestureEnd = (e: Event) => {
+      e.preventDefault();
+      document.body.style.zoom = '1';
+    };
+
+    // Add event listeners
+    document.addEventListener('gesturestart', handleGestureStart);
+    document.addEventListener('gesturechange', handleGestureChange);
+    document.addEventListener('gestureend', handleGestureEnd);
+
+    // Cleanup function to remove event listeners
+    return () => {
+      document.removeEventListener('gesturestart', handleGestureStart);
+      document.removeEventListener('gesturechange', handleGestureChange);
+      document.removeEventListener('gestureend', handleGestureEnd);
+    };
+  }, []);
+
 
   useEffect(() => {
-    const swiper = swiperRef.current.swiper;
 
-    // Check if swiper is initialized
+    const swiper = swiperRef.current.swiper;
     if (!swiper) return;
+
+    const onSetTranslate = () => {
+      if (showIntro.current && showAbout.current) {
+        const showIntroRect = showIntro.current.getBoundingClientRect();
+        const showAboutRect = showAbout.current.getBoundingClientRect();
+        const swiperWidth = swiper.wrapperEl.clientWidth;
+        const swiperTranslate = swiper.translate;
+        const swiperRightEdge = swiperTranslate + swiperWidth;
+
+        // Show Intro when Swiper's right edge is near showIntro
+        if (swiperRightEdge < 1920) {
+          if((swiperRightEdge - 1080) <= 0){
+            gsap.to(showIntro.current, { x:0, opacity: 1, duration: 1 });
+          }else{
+            gsap.to(showIntro.current, { x:swiperRightEdge - 1080 , opacity: 1, duration: 1 });
+
+          }
+        } else {
+          gsap.to(showIntro.current, { x:0,opacity: 0, duration: 1 });
+        }
+
+        // Show About when Swiper's right edge is near showAbout
+        if (swiperRightEdge < 1920) {
+          if((swiperRightEdge - 1080) <= 0){
+            gsap.to(showAbout.current, { x:0, opacity: 1, duration: 1 });
+          }else{
+            gsap.to(showAbout.current, { x:swiperRightEdge - 1080 , opacity: 1, duration: 1 });
+
+          }
+        } else {
+          gsap.to(showAbout.current, { x:0,opacity: 0, duration: 1 });
+        }
+      }
+
+    };
+
+    // Listen to `setTranslate` event, which is called whenever Swiper's translate value changes
+    swiper.on('setTranslate', onSetTranslate);
+
+    if (enterHideLoop.current) {
+      gsap.fromTo(
+        enterHideLoop.current,
+        { x: 0 },
+        {
+          x: 24,
+          duration: 2,
+          opacity: 0,
+          repeat: -1,
+          ease: "power1.out"
+        }
+      );
+    }
 
     // GSAP Animation for the slow mouse over effect
     const elements = document.querySelectorAll(".text-container h1, .text-container span");
@@ -55,22 +143,17 @@ export default function Home() {
       ease: 'power1.out',
       x: -swiper.translate,
       onUpdate: () => {
-        // Keep GSAP animation in sync with Swiper's translate
         swiper.update();
       }
     });
 
     const onScroll = (event:any) => {
-      // Adjust the duration based on the scroll delta
       tl.duration(Math.abs(event.deltaY) / 1000);
-      // Start GSAP animation on scroll
       tl.play();
     };
 
-    // Attach the scroll event handler
     swiper.el.addEventListener('scroll', onScroll);
 
-    // Custom cursor animation
     const cursor = cursorRef.current;
     const follower = followerRef.current;
 
@@ -82,11 +165,12 @@ export default function Home() {
     document.addEventListener("mousemove", moveCursor);
 
     return () => {
-      // Check if swiper.el exists before removing the event listener
       if (swiper.el) {
         swiper.el.removeEventListener('scroll', onScroll);
       }
       document.removeEventListener("mousemove", moveCursor);
+      swiper.off('setTranslate', onSetTranslate);
+
     };
 
   }, []);
@@ -109,17 +193,23 @@ export default function Home() {
           <Homes />
         </SwiperSlide>
         <SwiperSlide className='w-full min-h-screen flex items-center justify-center'>
-          <div className="grid grid-cols-2">
-              <div className="col flex">
-                <div><Intro /></div>
-                <div className="min-h-96 border-r-2 border-dashed border-r-arrow"></div>
+          <div className="grid grid-cols-2 gap-12 min-h-screen">
+              <div ref={showIntro} className="col flex justify-center">
+                <div className="relative">
+                  <Intro />
+                  <div  className="absolute top-1/2 right-0 transform -translate-y-44 translate-x-1/2  bg-white flex items-center justify-center border-r min-h-[200px]">
+                  </div>
+                </div>
               </div>
-              <div className="col">
-                <div className="show-abouts">
+              <div className="col flex justify-center">
+                <div ref={showAbout} className="show-abouts">
                     <About />
                 </div>
               </div>
           </div>
+        </SwiperSlide>
+        <SwiperSlide className='w-full min-h-screen flex items-center justify-center'>
+          <Experience />
         </SwiperSlide>
       </Swiper>  
     </>

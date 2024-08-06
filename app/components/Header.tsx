@@ -22,28 +22,28 @@ export const Header = () => {
               <FaApple className="text-5xl text-white" size={20} />
               <Link href="/">
                 <small
-                  className={`cursor-pointer ${router == "/" ? "text-orange-400" : "text-white"}`}
+                  className={` ${router == "/" ? "text-orange-400" : "text-white"}`}
                 >
                   イントロ
                 </small>
               </Link>
               <Link href="/about">
                 <small
-                  className={`cursor-pointer ${router == "/about" ? "text-orange-400" : "text-white"}`}
+                  className={` ${router == "/about" ? "text-orange-400" : "text-white"}`}
                 >
                   アバウト
                 </small>
               </Link>
               <Link href="/skill">
                 <small
-                  className={`cursor-pointer ${router == "/skill" ? "text-orange-400" : "text-white"}`}
+                  className={` ${router == "/skill" ? "text-orange-400" : "text-white"}`}
                 >
                   スキル
                 </small>
               </Link>
               <Link href="/project">
                 <small
-                  className={`cursor-pointer ${router == "/project" ? "text-orange-400" : "text-white"}`}
+                  className={` ${router == "/project" ? "text-orange-400" : "text-white"}`}
                 >
                   プロジェクト
                 </small>

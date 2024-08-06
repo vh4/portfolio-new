@@ -11,12 +11,12 @@ export default function Homes() {
 		</div>
 		<div className="">
 			<div className="text-container">
-			<h1>FATHONI WASESO</h1> <span>JATI</span>
+			<h1 className='judul'>FATHONI WASESO</h1> <span>JATI</span>
 			</div>
 		</div>
 		</div>
 		<div className="absolute bottom-0 right-0 py-12 px-24">
-		<div className="flex space-x-2 items-center cursor-pointer">
+		<div className="flex space-x-2 items-center ">
 			<p className="bg-opacity-75 p-2 text-white">Scroll or Drag Sideways</p>
 			<BsArrowRight size={24} className="text-white arrows-right" />
 		</div>

@@ -56,7 +56,7 @@ export const IntroMobile = () => {
 			</div>		
 			<div className="mt-10">
               <div className="flex justify-center space-x-8">
-                <button className="text-xs text-white px-4 py-1.5 rounded-lg border border-white  hover:border-orange-400">ダウンロードCV</button>
+                <div className="text-xs text-white px-4 py-1.5 rounded-lg border border-white  hover:border-orange-400">ダウンロードCV</div>
               </div>
             </div>  
         </div>
