@@ -47,10 +47,20 @@ export default function Home() {
     document.addEventListener('gesturechange', handleGestureChange);
     document.addEventListener('gestureend', handleGestureEnd);
 
+    const handleWheel = (event) => {
+      if (event.ctrlKey) {
+        event.preventDefault();
+        window.scrollBy(0, event.deltaY);
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+
     return () => {
       document.removeEventListener('gesturestart', handleGestureStart);
       document.removeEventListener('gesturechange', handleGestureChange);
       document.removeEventListener('gestureend', handleGestureEnd);
+      window.removeEventListener('wheel', handleWheel);
     };
   }, []);
 
@@ -164,8 +174,8 @@ export default function Home() {
       <div ref={cursorRef} className="cursor"></div>
       <div ref={followerRef} className="cursor-follower"></div>
       <Swiper
-        className='w-full min-h-screen'
-        mousewheel={false}
+        className='min-h-screen max-h-screen'
+        mousewheel={true}
         freeMode={true}
         allowTouchMove={true}
         scrollbar={{ draggable: true }}
@@ -173,11 +183,11 @@ export default function Home() {
         speed={1000} // Transition speed in ms
         ref={swiperRef}
       >
-        <SwiperSlide className='w-full min-h-screen flex items-center justify-center'>
+        <SwiperSlide className='w-full min-h-screen max-h-screen flex items-center justify-center'>
           <Homes />
         </SwiperSlide>
-        <SwiperSlide className='w-full min-h-screen flex justify-center container mx-auto'>
-          <div className="grid grid-cols-2 gap-6 min-h-screen mx-24">
+        <SwiperSlide className='w-full min-h-screen max-h-screen flex justify-center container mx-auto'>
+          <div className="grid grid-cols-2 gap-6 min-h-screen max-h-screen mx-24">
               <div ref={showIntro} className="col flex justify-center">
                 <div className="relative">
                   <Intro />
@@ -192,7 +202,7 @@ export default function Home() {
               </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className='w-full min-h-screen flex items-center justify-center'>
+        <SwiperSlide className='w-full min-h-screen max-h-screen flex items-center justify-center'>
           <Experience />
         </SwiperSlide>
       </Swiper>  
