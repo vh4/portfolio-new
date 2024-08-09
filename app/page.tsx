@@ -6,7 +6,7 @@ import SwiperCore from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Homes from "./components/home/Home";
@@ -26,6 +26,13 @@ export default function Home() {
   const enterHideLoop:any = useRef(null);
   const showIntro:any = useRef(null);
   const showAbout:any = useRef(null);
+
+  const showATextIntro:any = useRef(null);
+  const showATextTitleIntro:any = useRef(null);
+  const borderZeroToHundredPercen:any = useRef(null);
+  const persenRef:any = useRef(null);
+
+  const [currentPercent, setCurrentPercent] = useState(0);
 
   useEffect(() => {
     const handleGestureStart = (e:any) => {
@@ -62,6 +69,65 @@ export default function Home() {
       document.removeEventListener('gestureend', handleGestureEnd);
       window.removeEventListener('wheel', handleWheel);
     };
+  }, []);
+  useEffect(() => {
+    if (showATextTitleIntro.current && showATextIntro.current && borderZeroToHundredPercen.current && persenRef.current) {
+      const maxPercent = 100;
+
+      const tl = gsap.timeline({
+        onUpdate: () => {
+          const progress = Math.round(tl.progress() * maxPercent);
+          setCurrentPercent(progress);
+        }
+      });
+
+      // First animation: showATextTitleIntro and showATextIntro
+      tl.fromTo(
+        [showATextTitleIntro.current, showATextIntro.current],
+        { y: -150, opacity: 0 },
+        {
+          y: 0,
+          duration: 0.5,
+          opacity: 1,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );   
+
+      tl.fromTo(
+        [persenRef.current],
+        { y: 0, opacity: 0 },
+        {
+          y: 70,
+          duration: 0.5,
+          opacity: 1,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      ); 
+
+      // Second animation: borderZeroToHundredPercen
+      tl.fromTo(
+        borderZeroToHundredPercen.current,
+        { borderWidth: "0px", width: "0%" },
+        {
+          borderWidth: "1px",
+          width: "200%",
+          duration: 2,
+          ease: "power2.inOut",
+          onUpdate: () => {
+            const computedStyle = window.getComputedStyle(borderZeroToHundredPercen.current!);
+            const width = parseFloat(computedStyle.width);
+            const parentWidth = borderZeroToHundredPercen.current?.parentElement?.offsetWidth || 1;
+            const percent = Math.round((width / parentWidth) * 100);
+            setCurrentPercent(percent);
+          },
+        }
+      );
+
+    }
   }, []);
 
   useEffect(() => {
@@ -108,7 +174,6 @@ export default function Home() {
           x: 24,
           duration: 2,
           opacity: 0,
-          repeat: -1,
           ease: "power1.out"
         }
       );
@@ -173,6 +238,15 @@ export default function Home() {
     <>
       <div ref={cursorRef} className="cursor"></div>
       <div ref={followerRef} className="cursor-follower"></div>
+      {/* awal tampil */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div ref={showATextTitleIntro} className="text-intro judul text-2xl font-bold text-center opacity-0">私たちは勝つ!</div>
+        <div ref={showATextIntro} className="text-intro text-md mt-2 text-center opacity-0">困難を乗り越え、笑顔で会いましょう</div>
+        <div ref={borderZeroToHundredPercen} className="mt-8 border-black max-h-[1px] absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-6"></div>
+        <div ref={persenRef}className="absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-24 opacity-0">{currentPercent}%</div>
+      </div>
+
+      {/* awal tampil hide ,ganti ini. */}
       <Swiper
         className='min-h-screen max-h-screen'
         mousewheel={true}
@@ -183,7 +257,7 @@ export default function Home() {
         speed={1000} // Transition speed in ms
         ref={swiperRef}
       >
-        <SwiperSlide className='w-full min-h-screen max-h-screen flex items-center justify-center'>
+        {/* <SwiperSlide className='w-full min-h-screen max-h-screen flex items-center justify-center'>
           <Homes />
         </SwiperSlide>
         <SwiperSlide className='w-full min-h-screen max-h-screen flex justify-center container mx-auto'>
@@ -204,7 +278,7 @@ export default function Home() {
         </SwiperSlide>
         <SwiperSlide className='w-full min-h-screen max-h-screen flex items-center justify-center'>
           <Experience />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>  
     </>
   );
