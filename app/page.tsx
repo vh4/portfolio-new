@@ -327,7 +327,12 @@ export default function Home() {
         {['諦', 'め', 'ず', 'に', '.', '.', '.'].map((char, index) => (
           <div
             key={index}
-            ref={(el) => (chars.current[index] = el!)}
+            ref={(el) => {
+              if (el) {
+                chars.current[index] = el;
+              }
+              return undefined; 
+            }}            
             className="mt-2 font-bold px-2"
           >
             {char}
