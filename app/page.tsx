@@ -6,7 +6,7 @@ import SwiperCore from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Homes from "./components/home/Home";
@@ -26,6 +26,17 @@ export default function Home() {
   const enterHideLoop:any = useRef(null);
   const showIntro:any = useRef(null);
   const showAbout:any = useRef(null);
+
+  const showATextIntro:any = useRef(null);
+  const showATextTitleIntro:any = useRef(null);
+  const borderZeroToHundredPercen:any = useRef(null);
+  const persenRef:any = useRef(null);
+  const chars:any = useRef(null);
+  const showLembar:any = useRef(null);
+  const animations:any = useRef(null);
+
+  
+  const [currentPercent, setCurrentPercent] = useState(0);
 
   useEffect(() => {
     const handleGestureStart = (e:any) => {
@@ -63,6 +74,136 @@ export default function Home() {
       window.removeEventListener('wheel', handleWheel);
     };
   }, []);
+  useEffect(() => {
+    if (
+      showATextTitleIntro.current &&
+      showATextIntro.current &&
+      chars.current
+      && 
+      animations.current
+    ) {
+      const maxPercent = 100;
+  
+      const tl = gsap.timeline({
+        onUpdate: () => {
+          const progress = Math.round(tl.progress() * maxPercent);
+          setCurrentPercent(progress);
+        },
+      });
+  
+      // First animation: showATextTitleIntro and showATextIntro
+      tl.fromTo(
+        [showATextTitleIntro.current, showATextIntro.current],
+        { y: -150, opacity: 0 },
+        {
+          y: 0,
+          duration: 0.5,
+          opacity: 1,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );
+  
+      tl.fromTo(
+        showLembar.current,
+        { y: 24, opacity: 0 },
+        {
+          y: 0,
+          duration: 0.5,
+          opacity: 1,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );
+  
+      chars.current.forEach((char: any, index: any) => {
+        tl.fromTo(
+          char,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.1,
+            ease: "power2.out",
+          }
+        );
+      });
+  
+      tl.to(showLembar.current, {
+        opacity: 0,
+        duration: 0.5,
+        stagger: {
+          each: 0.5,
+        },
+        delay: 0.5, // Optional delay before fading out
+      });
+
+
+      tl.fromTo(
+        [persenRef.current],
+        { y: 0, opacity: 0 },
+        {
+          y: 70,
+          duration: 0.5,
+          opacity: 1,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );
+  
+      // Second animation: borderZeroToHundredPercen
+      tl.fromTo(
+        borderZeroToHundredPercen.current,
+        { borderWidth: "0px", width: "0%" },
+        {
+          borderWidth: "1px",
+          width: "200%",
+          duration: 1,
+          ease: "power2.inOut",
+          onUpdate: () => {
+            const computedStyle = window.getComputedStyle(
+              borderZeroToHundredPercen.current!
+            );
+            const width = parseFloat(computedStyle.width);
+            const parentWidth =
+              borderZeroToHundredPercen.current?.parentElement?.offsetWidth || 1;
+            const percent = Math.round((width / parentWidth) * 100);
+            setCurrentPercent(percent);
+          },
+          onComplete: () => {
+            // Ensure percentage is set to 100 when the animation completes
+            setCurrentPercent(100);
+          },
+        }
+      );
+
+
+      tl.to(animations.current, {
+        opacity: 0,
+        duration: 0,
+      });
+
+        
+      tl.fromTo(
+        swiperRef.current,
+        { y: 1000, opacity: 0 },
+        {
+          y:0,
+          opacity: 1,
+          duration: 1,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );
+
+
+    }
+  }, []);
+  
 
   useEffect(() => {
     const swiper = swiperRef.current.swiper;
@@ -106,9 +247,8 @@ export default function Home() {
         { x: 0 },
         {
           x: 24,
-          duration: 2,
+          duration: 0.5,
           opacity: 0,
-          repeat: -1,
           ease: "power1.out"
         }
       );
@@ -173,8 +313,34 @@ export default function Home() {
     <>
       <div ref={cursorRef} className="cursor"></div>
       <div ref={followerRef} className="cursor-follower"></div>
+      {/* awal tampil */}
+      <div ref={animations}>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div ref={showATextTitleIntro} className="text-intro judul text-2xl font-bold text-center opacity-0">私たちは勝つ!</div>
+        <div ref={showATextIntro} className="text-intro text-md mt-2 text-center opacity-0">困難を乗り越え、笑顔で会いましょう</div>
+        <div ref={borderZeroToHundredPercen} className="mt-8 border-black max-h-[1px] absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-6"></div>
+        <div ref={persenRef} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-24 opacity-0">{currentPercent}%</div>
+      </div>
+
+      <div className="absolute top-1/5 transform right-0 -translate-x-64 translate-y-12">
+      <div ref={showLembar} className="w-12 p-2.5 bg-black text-white opacity-0 py-6">
+        {['諦', 'め', 'ず', 'に', '.', '.', '.'].map((char, index) => (
+          <div
+            key={index}
+            ref={(el) => (chars.current[index] = el!)}
+            className="mt-2 font-bold px-2"
+          >
+            {char}
+          </div>
+        ))}
+      </div>
+    </div>
+      </div>
+
+      {/* awal tampil hide ,ganti ini. */}
       <Swiper
-        className='min-h-screen max-h-screen'
+        className='min-h-screen max-h-screen opacity-0 honeycomb'
+        id="honeycomb" 
         mousewheel={true}
         freeMode={true}
         allowTouchMove={true}
