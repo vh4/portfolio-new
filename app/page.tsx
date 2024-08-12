@@ -31,7 +31,7 @@ export default function Home() {
   const showATextTitleIntro:any = useRef(null);
   const borderZeroToHundredPercen:any = useRef(null);
   const persenRef:any = useRef(null);
-  const chars:any = useRef(null);
+  const chars = useRef<HTMLDivElement[]>([]); // Inisialisasi dengan array kosong
   const showLembar:any = useRef(null);
   const animations:any = useRef(null);
 
@@ -324,15 +324,19 @@ export default function Home() {
 
       <div className="absolute top-1/5 transform right-0 -translate-x-64 translate-y-12">
       <div ref={showLembar} className="w-12 p-2.5 bg-black text-white opacity-0 py-6">
-        {['諦', 'め', 'ず', 'に', '.', '.', '.'].map((char, index) => (
-          <div
-            key={index}
-            ref={(el) => (chars.current[index] = el!)}
-            className="mt-2 font-bold px-2"
-          >
-            {char}
-          </div>
-        ))}
+      {['諦', 'め', 'ず', 'に', '.', '.', '.'].map((char, index) => (
+  <div
+    key={index}
+    ref={(el) => {
+      if (el) {
+        chars.current[index] = el;
+      }
+    }}
+    className="mt-2 font-bold px-2"
+  >
+    {char}
+  </div>
+))}
       </div>
     </div>
       </div>
