@@ -143,11 +143,11 @@ export default function Home() {
 
       tl.fromTo(
         [showATextTitleIntro.current, showATextIntro.current],
-        { y: 0, opacity: 1},
+        { y: 0, opacity: 0},
         {
           y: -150,
           duration: 0.5,
-          opacity: 0,
+          opacity: 1,
           stagger: {
             each: 0.5,
           },
