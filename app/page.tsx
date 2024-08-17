@@ -538,7 +538,7 @@ export default function Home() {
     </div>
 
         {/* mobile */}
-        <div className="hidden xl:block">
+        <div className="block xl:hidden">
     <div ref={cursorRefMobile} className="cursor"></div>
       <div ref={followerRefMobile} className="cursor-follower"></div>
       <div ref={transisionMobile} className="absolute min-w-full min-h-full"></div>
