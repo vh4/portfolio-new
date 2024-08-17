@@ -36,8 +36,29 @@ export default function Home() {
   const animations:any = useRef(null);
   const transision:any = useRef(null);
 
+  // mobile
+
+  const swiperRefMobile:any = useRef(null);
+  const cursorRefMobile:any = useRef(null);
+  const followerRefMobile:any = useRef(null);
+
+  const enterHideLoopMobile:any = useRef(null);
+  const showIntroMobile:any = useRef(null);
+  const showAboutMobile:any = useRef(null);
+
+  const showATextIntroMobile:any = useRef(null);
+  const showATextTitleIntroMobile:any = useRef(null);
+  const borderZeroToHundredPercenMobile:any = useRef(null);
+  const persenRefMobile:any = useRef(null);
+  const charsMobile = useRef<HTMLDivElement[]>([]); // Inisialisasi dengan array kosong
+  const showLembarMobile:any = useRef(null);
+  const animationsMobile:any = useRef(null);
+  const transisionMobile:any = useRef(null);
+
   
   const [currentPercent, setCurrentPercent] = useState(0);
+
+  const [currentPercentMobile, setCurrentPercentMobile] = useState(0);
 
   useEffect(() => {
     const handleGestureStart = (e:any) => {
@@ -75,6 +96,8 @@ export default function Home() {
       window.removeEventListener('wheel', handleWheel);
     };
   }, []);
+
+  // desktop
   useEffect(() => {
     if (
       showATextTitleIntro.current &&
@@ -222,6 +245,155 @@ export default function Home() {
     }
   }, []);
 
+
+  //mobile
+  useEffect(() => {
+    if (
+      showATextTitleIntroMobile.current &&
+      showATextIntroMobile.current &&
+      charsMobile.current
+      && 
+      animationsMobile.current
+    ) {
+      const maxPercent = 100;
+  
+      const tl = gsap.timeline({
+        onUpdate: () => {
+          const progress = Math.round(tl.progress() * maxPercent);
+          setCurrentPercentMobile(progress);
+        },
+      });
+  
+      // First animation: showATextTitleIntro and showATextIntro
+      tl.fromTo(
+        [showATextTitleIntroMobile.current, showATextIntroMobile.current],
+        { y: -150, opacity: 0 },
+        {
+          y: 0,
+          duration: 0.5,
+          opacity: 1,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );
+  
+      tl.fromTo(
+        showLembarMobile.current,
+        { y: 24, opacity: 0 },
+        {
+          y: 0,
+          duration: 0.5,
+          opacity: 1,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );
+  
+      charsMobile.current.forEach((char: any, index: any) => {
+        tl.fromTo(
+          char,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.1,
+            ease: "power2.out",
+          }
+        );
+      });
+  
+      tl.to(showLembarMobile.current, {
+        opacity: 0,
+        duration: 0.5,
+        stagger: {
+          each: 0.5,
+        },
+        delay: 0.5, // Optional delay before fading out
+      });
+
+      tl.fromTo(
+        [showATextTitleIntroMobile.current, showATextIntroMobile.current],
+        { y: 0, opacity: 0},
+        {
+          y: -150,
+          duration: 0.5,
+          opacity: 1,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );
+
+
+      tl.fromTo(
+        [persenRefMobile.current],
+        { y: -76, opacity: 0 },
+        {
+          y: -48,
+          duration: 2,
+          opacity: 1,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );
+  
+      // Second animation: borderZeroToHundredPercen
+      tl.fromTo(
+        borderZeroToHundredPercenMobile.current,
+        { borderWidth: "0px", width: "0%" },
+        {
+          borderWidth: "2px",
+          width: "400%",
+          duration: 1,
+          ease: "power2.inOut",
+          onUpdate: () => {
+            const computedStyle = window.getComputedStyle(
+              borderZeroToHundredPercenMobile.current!
+            );
+            const width = parseFloat(computedStyle.width);
+            const parentWidth =
+              borderZeroToHundredPercenMobile.current?.parentElement?.offsetWidth || 1;
+            const percent = Math.round((width / parentWidth) * 100);
+            setCurrentPercentMobile(percent);
+          },
+          onComplete: () => {
+            // Ensure percentage is set to 100 when the animation completes
+            setCurrentPercentMobile(100);
+          },
+        }
+      );    
+
+      tl.to(animationsMobile.current, {
+        duration: 0.5, // Durasi animasi pergeseran dari bawah ke atas
+        opacity:0,
+        onComplete:() => {
+          animationsMobile.current.classList.remove("min-w-screen", "min-h-screen");
+          tl.fromTo(
+            transision.current,
+            {
+              y: 0, // Mulai dari bawah viewport
+              background:"black",
+              zIndex:50
+            },
+            {
+              y: -1000, // Pindah ke posisi awal
+              background:"black",
+              zIndex:50,
+              duration: 1.5,
+              ease: "power2.inOut",
+            }
+          );
+
+        }
+      });
+      
+
+    }
+  }, []);
+
   useEffect(() => {
     const swiper = swiperRef.current.swiper;
     if (!swiper) return;
@@ -328,7 +500,9 @@ export default function Home() {
 
   return (
     <>
-      <div ref={cursorRef} className="cursor"></div>
+    {/* desktop */}
+    <div className="hidden xl:block">
+    <div ref={cursorRef} className="cursor"></div>
       <div ref={followerRef} className="cursor-follower"></div>
       <div ref={transision} className="absolute min-w-full min-h-full"></div>
       <div ref={animations} className="min-w-screen min-h-screen">
@@ -346,21 +520,60 @@ export default function Home() {
       <div className="absolute top-1/5 transform right-0 -translate-x-64 translate-y-12 z-30">
       <div ref={showLembar} className="w-12 p-2.5 bg-black text-white opacity-0 py-6">
       {['諦', 'め', 'ず', 'に', '.', '.', '.'].map((char, index) => (
-  <div
-    key={index}
-    ref={(el) => {
-      if (el) {
-        chars.current[index] = el;
-      }
-    }}
-    className="mt-2 font-bold px-2"
-  >
-    {char}
-  </div>
+        <div
+          key={index}
+          ref={(el) => {
+            if (el) {
+              chars.current[index] = el;
+            }
+          }}
+          className="mt-2 font-bold px-2"
+        >
+          {char}
+        </div>
 ))}
       </div>
     </div>
       </div>
+    </div>
+
+        {/* mobile */}
+        <div className="hidden xl:block">
+    <div ref={cursorRefMobile} className="cursor"></div>
+      <div ref={followerRefMobile} className="cursor-follower"></div>
+      <div ref={transisionMobile} className="absolute min-w-full min-h-full"></div>
+      <div ref={animationsMobile} className="min-w-screen min-h-screen">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
+        <div ref={showATextTitleIntroMobile} className="text-intro judul text-2xl font-bold text-center opacity-0">私たちは勝つ!</div>
+        <div ref={showATextIntroMobile} className="text-intro text-md mt-2 text-center opacity-0">困難を乗り越え、笑顔で会いましょう</div>
+        <div ref={borderZeroToHundredPercenMobile} className="mt-8 border-black max-h-[4px] absolute top-1/2 left-1/2 transform -translate-x-1/2"></div>
+        <div ref={persenRefMobile} className="opacity-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-36 font-extrabold text-4xl judul">
+          <div className="w-32 h-32 flex items-center justify-center border-y-4 border-black">
+            {currentPercentMobile}%
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
+      <div ref={showLembarMobile} className="w-12 p-2.5 bg-black text-white opacity-0 py-6">
+      {['諦', 'め', 'ず', 'に', '.', '.', '.'].map((char, index) => (
+        <div
+          key={index}
+          ref={(el) => {
+            if (el) {
+              charsMobile.current[index] = el;
+            }
+          }}
+          className="mt-2 font-bold px-2"
+        >
+          {char}
+        </div>
+))}
+      </div>
+    </div>
+      </div>
+    </div>
+
       {/*  for desktop */}
       <div className="hidden xl:block">
         <Swiper
@@ -403,15 +616,7 @@ export default function Home() {
       <div className="block xl:hidden">
         <div className="min-h-screen w-full">
           <div className="flex items-center justify-center">
-            <Swiper
-                className='min-h-screen max-h-screen z-20'
-                modules={[Navigation, FreeMode]}
-                speed={1000}
-                ref={swiperRef}
-              >
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 text-md md:text-6xl font-bold block xl:hidden">維持中</div>
-
-            </Swiper> 
+            <div ref={swiperRef} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 text-md md:text-6xl font-bold block xl:hidden">維持中</div>
           </div>
         </div>
       </div>
