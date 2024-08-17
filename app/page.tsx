@@ -300,21 +300,6 @@ export default function Home() {
           },
         }
       );
-
-      tl.fromTo(
-        showLembarMobile.current,
-        { y: 0, opacity: 1 },
-        {
-          y: 24,
-          duration: 0.5,
-          opacity: 0,
-          stagger: {
-            each: 0.5,
-          },
-        }
-      );
-      
-      
   
       charsMobile.current.forEach((char: any, index: any) => {
         tl.fromTo(
