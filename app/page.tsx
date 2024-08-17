@@ -400,6 +400,19 @@ export default function Home() {
 
         }
       });
+
+      tl.fromTo(
+        [swipperMobile.current],
+        { y: -36, opacity: 0 },
+        {
+          y: 0,
+          duration: 1,
+          opacity: 1,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );
       
 
     }
@@ -627,7 +640,7 @@ export default function Home() {
       <div className="block xl:hidden min-h-screen max-h-screen z-20">
         <div className="min-h-screen w-full">
           <div className="flex items-center justify-center">
-            <div ref={swiperRef} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 text-md md:text-6xl font-bold block xl:hidden opacity-0">維持中</div>
+            <div ref={swipperMobile} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 text-md md:text-6xl font-bold block xl:hidden opacity-0">維持中</div>
           </div>
         </div>
       </div>
