@@ -38,13 +38,10 @@ export default function Home() {
 
   // mobile
 
-  const swiperRefMobile:any = useRef(null);
+  const swipperMobile:any = useRef(null);
   const cursorRefMobile:any = useRef(null);
   const followerRefMobile:any = useRef(null);
 
-  const enterHideLoopMobile:any = useRef(null);
-  const showIntroMobile:any = useRef(null);
-  const showAboutMobile:any = useRef(null);
 
   const showATextIntroMobile:any = useRef(null);
   const showATextTitleIntroMobile:any = useRef(null);
@@ -613,10 +610,10 @@ export default function Home() {
     </Swiper> 
       </div>
             {/*  for mpbile */}
-      <div className="block xl:hidden">
+      <div className="block xl:hidden min-h-screen max-h-screen z-20">
         <div className="min-h-screen w-full">
           <div className="flex items-center justify-center">
-            <div ref={swiperRef} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 text-md md:text-6xl font-bold block xl:hidden">維持中</div>
+            <div ref={swiperRef} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 text-md md:text-6xl font-bold block xl:hidden opacity-0">維持中</div>
           </div>
         </div>
       </div>
