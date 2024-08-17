@@ -43,19 +43,22 @@ export default function About() {
 
   return (
     <>
-      <div ref={containerRef} className={`min-h-screen flex mt-16`}>
-        <div className="pl-24 container max-w-[600px] max-h-[550px] overflow-y-scroll scroll-none">
+      <div ref={containerRef} className={`min-h-screen flex mt-8`}>
+        <div className="max-w-[600px] max-h-[650px] overflow-y-scroll scroll-none">
           <div className="">
             <div className="">
-              <h1 className="judul text-4xl font-extrabold -ml-2">About</h1>
+              <h1 className="text-2xl font-extrabold -ml-2">僕について</h1>
+              <div className="mt-2 border-b border-black max-w-[100px]"></div>
+					<div className="mt-1 border-b border-black max-w-[50px]"></div>
+					<div className="mt-1 border-b border-black max-w-[25px]"></div>
             </div>
-            <div className="mt-4">
+            <div className="mt-8">
               <p>
                 Aboutのはじめまして。トニーと申します。今、仕事のためにスラバヤに住んでいます。ソフトウェアエンジニアに強い情熱を持っており、仕事やフリーランスのプロジェクトでそれを活かしています。私についてもっと知りたい場合は、以下をご覧ください。
               </p>
             </div>
             <div className="mt-8">
-              <h2 className="text-xl font-semibold mb-2">詳細</h2>
+              <h2 className="text-xl mb-2">詳細</h2>
               <ul className="list-disc pl-5 space-y-1">
                 <li className="flex items-center space-x-3">
                   <FaUser className="" />{" "}
@@ -70,15 +73,15 @@ export default function About() {
                 <li className="flex items-center space-x-3">
                   <FaGlobe className="" /> <span>国: インドネシア</span>
                 </li>
+                    <li className="flex items-center space-x-3">
+                      <FaMapMarkerAlt className="" />{" "}
+                      <span>住所: 東ジャワ州, スラバヤ</span>
+                    </li>
                 <div
                   ref={detailsRef}
                   style={{ height: 0, overflow: "hidden", opacity: 0 }}
                 >
                   <>
-                    <li className="flex items-center space-x-3">
-                      <FaMapMarkerAlt className="" />{" "}
-                      <span>住所: 東ジャワ州, スラバヤ</span>
-                    </li>
                     <li className="flex items-center space-x-3">
                       <FaLaptopCode className="" />{" "}
                       <span>職業: フルスタックデベロッパー</span>

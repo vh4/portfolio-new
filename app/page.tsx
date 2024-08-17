@@ -13,6 +13,7 @@ import Homes from "./components/home/Home";
 import { Intro } from "./components/intro/Intro";
 import About from "./components/about/About";
 import Experience from "./components/experience/Experience";
+import Image from "next/image";
 
 SwiperCore.use([Navigation, Mousewheel, FreeMode]);
 
@@ -34,6 +35,7 @@ export default function Home() {
   const chars = useRef<HTMLDivElement[]>([]); // Inisialisasi dengan array kosong
   const showLembar:any = useRef(null);
   const animations:any = useRef(null);
+  const transision:any = useRef(null);
 
   
   const [currentPercent, setCurrentPercent] = useState(0);
@@ -140,13 +142,26 @@ export default function Home() {
         delay: 0.5, // Optional delay before fading out
       });
 
+      tl.fromTo(
+        [showATextTitleIntro.current, showATextIntro.current],
+        { y: 0, opacity: 1},
+        {
+          y: -150,
+          duration: 0.5,
+          opacity: 0,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );
+
 
       tl.fromTo(
         [persenRef.current],
-        { y: 0, opacity: 0 },
+        { y: -76, opacity: 0 },
         {
-          y: 70,
-          duration: 0.5,
+          y: -48,
+          duration: 2,
           opacity: 1,
           stagger: {
             each: 0.5,
@@ -159,8 +174,8 @@ export default function Home() {
         borderZeroToHundredPercen.current,
         { borderWidth: "0px", width: "0%" },
         {
-          borderWidth: "1px",
-          width: "200%",
+          borderWidth: "2px",
+          width: "400%",
           duration: 1,
           ease: "power2.inOut",
           onUpdate: () => {
@@ -178,32 +193,35 @@ export default function Home() {
             setCurrentPercent(100);
           },
         }
-      );
-
+      );    
 
       tl.to(animations.current, {
-        opacity: 0,
-        duration: 0,
-      });
+        duration: 0.5, // Durasi animasi pergeseran dari bawah ke atas
+        opacity:0,
+        onComplete:() => {
+          animations.current.classList.remove("min-w-screen", "min-h-screen");
+          tl.fromTo(
+            transision.current,
+            {
+              y: 0, // Mulai dari bawah viewport
+              background:"black",
+              zIndex:50
+            },
+            {
+              y: -1000, // Pindah ke posisi awal
+              background:"black",
+              zIndex:50,
+              duration: 1.5,
+              ease: "power2.inOut",
+            }
+          );
 
-        
-      tl.fromTo(
-        swiperRef.current,
-        { y: 1000, opacity: 0 },
-        {
-          y:0,
-          opacity: 1,
-          duration: 1,
-          stagger: {
-            each: 0.5,
-          },
         }
-      );
-
+      });
+      
 
     }
   }, []);
-  
 
   useEffect(() => {
     const swiper = swiperRef.current.swiper;
@@ -313,16 +331,21 @@ export default function Home() {
     <>
       <div ref={cursorRef} className="cursor"></div>
       <div ref={followerRef} className="cursor-follower"></div>
+      <div ref={transision} className="absolute min-w-full min-h-full"></div>
       {/* awal tampil */}
-      <div ref={animations}>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div ref={animations} className="min-w-screen min-h-screen">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
         <div ref={showATextTitleIntro} className="text-intro judul text-2xl font-bold text-center opacity-0">私たちは勝つ!</div>
         <div ref={showATextIntro} className="text-intro text-md mt-2 text-center opacity-0">困難を乗り越え、笑顔で会いましょう</div>
-        <div ref={borderZeroToHundredPercen} className="mt-8 border-black max-h-[1px] absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-6"></div>
-        <div ref={persenRef} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-24 opacity-0">{currentPercent}%</div>
+        <div ref={borderZeroToHundredPercen} className="mt-8 border-black max-h-[4px] absolute top-1/2 left-1/2 transform -translate-x-1/2"></div>
+        <div ref={persenRef} className="opacity-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-36 font-extrabold text-4xl judul">
+          <div className="w-32 h-32 flex items-center justify-center border-y-4 border-black">
+            {currentPercent}%
+          </div>
+        </div>
       </div>
 
-      <div className="absolute top-1/5 transform right-0 -translate-x-64 translate-y-12">
+      <div className="absolute top-1/5 transform right-0 -translate-x-64 translate-y-12 z-30">
       <div ref={showLembar} className="w-12 p-2.5 bg-black text-white opacity-0 py-6">
       {['諦', 'め', 'ず', 'に', '.', '.', '.'].map((char, index) => (
   <div
@@ -343,39 +366,40 @@ export default function Home() {
 
       {/* awal tampil hide ,ganti ini. */}
       <Swiper
-        className='min-h-screen max-h-screen opacity-0 honeycomb'
-        id="honeycomb" 
-        mousewheel={true}
-        freeMode={true}
-        allowTouchMove={true}
-        scrollbar={{ draggable: true }}
-        modules={[Navigation, FreeMode]}
-        speed={1000} // Transition speed in ms
-        ref={swiperRef}
-      >
-        <SwiperSlide className='w-full min-h-screen max-h-screen flex items-center justify-center'>
-          <Homes />
-        </SwiperSlide>
-        <SwiperSlide className='w-full min-h-screen max-h-screen flex justify-center container mx-auto'>
-          <div className="grid grid-cols-2 gap-6 min-h-screen max-h-screen mx-24">
-              <div ref={showIntro} className="col flex justify-center">
-                <div className="relative">
-                  <Intro />
-                  <div  className="absolute top-1/2 right-0 transform -translate-y-44 translate-x-1/2 border-black flex items-center justify-center border-r min-h-[200px]">
-                  </div>
-                </div>
-              </div>
-              <div ref={showAbout} className="col flex justify-center">
-                <div className="relative">
-                    <About />
-                </div>
-              </div>
+      className='min-h-screen max-h-screen z-20'
+      modules={[Navigation, FreeMode]}
+      speed={1000}
+      ref={swiperRef}
+    >
+      <SwiperSlide className='w-full min-h-screen max-h-screen flex items-center justify-center'>
+        <Homes />
+      </SwiperSlide>
+      <SwiperSlide className='w-full min-h-screen max-h-screen flex justify-center container mx-auto'>
+        <div className="grid grid-cols-2 min-h-screen max-h-screen">
+          <div ref={showIntro} className="col flex justify-center pl-12">
+            <div className="relative">
+              <Intro />
+            </div>
           </div>
-        </SwiperSlide>
-        <SwiperSlide className='w-full min-h-screen max-h-screen flex items-center justify-center'>
-          <Experience />
-        </SwiperSlide>
-      </Swiper>  
+          <div ref={showAbout} className="col relative bg-intro max-h-screen w-full">
+          </div>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide className='w-full min-h-screen max-h-screen flex justify-center container mx-auto'>
+        <div className="grid grid-cols-2 min-h-screen max-h-screen">
+          <div ref={showIntro} className="col flex justify-center">
+            <div className="relative">
+              <About />
+            </div>
+          </div>
+          <div ref={showAbout} className="col relative bg-about max-h-screen w-full">
+          </div>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide className='w-full min-h-screen max-h-screen flex items-center justify-center'>
+        <Experience />
+      </SwiperSlide>
+    </Swiper> 
     </>
   );
 }
