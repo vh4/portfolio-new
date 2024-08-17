@@ -361,7 +361,9 @@ export default function Home() {
       </div>
     </div>
       </div>
-      <Swiper
+      {/*  for desktop */}
+      <div className="hidden xl:block">
+        <Swiper
       className='min-h-screen max-h-screen z-20'
       modules={[Navigation, FreeMode]}
       speed={1000}
@@ -396,6 +398,22 @@ export default function Home() {
         <Experience />
       </SwiperSlide>
     </Swiper> 
+      </div>
+            {/*  for mpbile */}
+      <div className="block xl:hidden">
+        <div className="min-h-screen w-full">
+          <div className="flex items-center justify-center">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 text-md md:text-6xl font-bold block xl:hidden">維持中</div>
+            <Swiper
+        className='min-h-screen max-h-screen z-20'
+        modules={[Navigation, FreeMode]}
+        speed={1000}
+        ref={swiperRef}
+      >
+    </Swiper> 
+          </div>
+        </div>
+      </div>
     </>
   );
 }
