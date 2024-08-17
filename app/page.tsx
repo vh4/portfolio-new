@@ -274,6 +274,19 @@ export default function Home() {
           },
         }
       );
+
+      tl.fromTo(
+        [showATextTitleIntroMobile.current, showATextIntroMobile.current],
+        { y: 0, opacity: 1 },
+        {
+          y: -150,
+          duration: 0.5,
+          opacity: 0,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );
   
       tl.fromTo(
         showLembarMobile.current,
@@ -287,6 +300,21 @@ export default function Home() {
           },
         }
       );
+
+      tl.fromTo(
+        showLembarMobile.current,
+        { y: 0, opacity: 1 },
+        {
+          y: 24,
+          duration: 0.5,
+          opacity: 0,
+          stagger: {
+            each: 0.5,
+          },
+        }
+      );
+      
+      
   
       charsMobile.current.forEach((char: any, index: any) => {
         tl.fromTo(
@@ -300,6 +328,7 @@ export default function Home() {
           }
         );
       });
+
   
       tl.to(showLembarMobile.current, {
         opacity: 0,
