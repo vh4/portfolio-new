@@ -13,7 +13,6 @@ import Homes from "./components/home/Home";
 import { Intro } from "./components/intro/Intro";
 import About from "./components/about/About";
 import Experience from "./components/experience/Experience";
-import Image from "next/image";
 
 SwiperCore.use([Navigation, Mousewheel, FreeMode]);
 
@@ -332,7 +331,6 @@ export default function Home() {
       <div ref={cursorRef} className="cursor"></div>
       <div ref={followerRef} className="cursor-follower"></div>
       <div ref={transision} className="absolute min-w-full min-h-full"></div>
-      {/* awal tampil */}
       <div ref={animations} className="min-w-screen min-h-screen">
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
         <div ref={showATextTitleIntro} className="text-intro judul text-2xl font-bold text-center opacity-0">私たちは勝つ!</div>
@@ -363,8 +361,6 @@ export default function Home() {
       </div>
     </div>
       </div>
-
-      {/* awal tampil hide ,ganti ini. */}
       <Swiper
       className='min-h-screen max-h-screen z-20'
       modules={[Navigation, FreeMode]}
