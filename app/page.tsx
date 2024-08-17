@@ -383,7 +383,7 @@ export default function Home() {
         onComplete:() => {
           animationsMobile.current.classList.remove("min-w-screen", "min-h-screen");
           tl.fromTo(
-            transision.current,
+            transisionMobile.current,
             {
               y: 0, // Mulai dari bawah viewport
               background:"black",
