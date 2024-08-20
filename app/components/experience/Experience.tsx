@@ -4,17 +4,26 @@ import { Navigation, Pagination, Mousewheel } from "swiper/modules";
 import SwiperCore from "swiper";
 import gsap from "gsap";
 
+interface PilihInterface {
+  judul: string;
+  category: number;
+  description: string[];
+  image: string;
+  link_project: string;
+  link_website: string;
+}
+
 // Install modules
 export default function Experience() {
   SwiperCore.use([Navigation, Pagination, Mousewheel]);
 
-  const [pilih, setPilih]  = useState({
-        judul:"REST APIs for PPOB Transactions",
-        category:1,
-        description:["Develop and maintain REST APIs for various PPOB transactions, including game vouchers, electricity payments, and multifinance taxes. Manage integrations with key partners like Tokopedia and Artajasa, YUP ensuring efficient integration. Utilize PHP and TypeScript with Node.js for security and build challenges, implementing JWT and asymmetric cryptography."],
-        image:"/images/travel.jpeg",
-        link_project:"",
-        link_website:"",
+  const [pilih, setPilih] = useState<PilihInterface>({
+    judul: "オンライン支払いの取引のREST API",
+    category: 1,
+    description: ["さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行っています。", "ユーザー、トコペディアやアルタジャサやYUPなどの会社を統合に手伝ってあげ、エンドツーエンドのプロダクションメイド作ったAPIのユーザーを確認しており、必要なユーザーのものを合わせます", "PHPとTypeScriptを利用しており、安全なユーザー作成APIのため、JWTと暗号化（アシンメトリック・クリプトグラフィ）で統合をしており、さらにユーザーに必要なセキュリティを合わせることができます"],
+    image: "/images/travel.jpeg",
+    link_project: "",
+    link_website: "",
   });
 
   const [pilihIndex, setpilihIndex]  = useState(1);
@@ -59,15 +68,15 @@ export default function Experience() {
 
   const category = [
     {
-      name: "PT. Bimasakti Sinergi",
+      name: "ビーマーシャクティー・企業",
       type: 1
     },
     {
-      name: "テレコム大学",
+      name: "テレコム・大学",
       type: 2
     },
     {
-      name: "エアナブ・インドネシア",
+      name: "エアナブ・企業",
       type: 3
     }
   ];
@@ -75,9 +84,9 @@ export default function Experience() {
 
 const dataJapaneseVersion = [
   {
-    judul: "PPOBトランザクション用REST API",
+    judul: "オンライン支払いの取引のREST API",
     category: 1,
-    description: ["ゲームバウチャー、電気料金、多機能税金を含むさまざまなPPOBトランザクションのためのREST APIを開発および保守します。TokopediaやArtajasaとの統合を効率的に行うための管理も行います。PHPとNode.jsを使用したTypeScriptでセキュリティと構築の課題に対応し、JWTおよび非対称暗号化を実装します。"],
+    description: ["さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行っています。", "ユーザー、トコペディアやアルタジャサやYUPなどの会社を統合に手伝ってあげ、エンドツーエンドのプロダクションメイド作ったAPIのユーザーを確認しており、必要なユーザーのものを合わせます", "PHPとTypeScriptを利用しており、安全なユーザー作成APIのため、JWTと暗号化（アシンメトリック・クリプトグラフィ）で統合をしており、さらにユーザーに必要なセキュリティを合わせることができます"],
     image: "/images/anime.jpg",
     link_project: "",
     link_website: "",
@@ -144,7 +153,7 @@ return (
               <div className="judul text-4xl">PROJECTS</div>
             </div>
             <div className="flex space-x-2 mr-12 items-end mb-2">
-              <div className="judul text-xs">All</div>
+              <div className="judul text-xs">全員</div>
               {category.map((e, i) => (
                 <>
                   <div className="judul text-xs" key={i}>{e.name}</div>
@@ -159,9 +168,15 @@ return (
                 <div className="ml-24 col max-h-[250px] min-h-[250px] mt-12">
                   <div ref={deskription} className="flex p-4 space-x-2">
                     <div className="text-xs">{pilihIndex + 1}.</div>
-                    <div className="">
-                    <div className="text-md tracking-wider">{pilih.description}</div>
-                    </div>
+                      <div className="">
+                        {
+                          pilih.description.map((e, i) => (
+                            <div key={i} className={`text-md tracking-wider ${i != 0 && 'mt-5'}`}>
+                              {e}
+                            </div>
+                          ))
+                        }
+                      </div>
                   </div>
                 </div>
                 <div ref={containerRef}  className="col min-h-[550px] max-h-[550px] overflow-auto scroll-none">
