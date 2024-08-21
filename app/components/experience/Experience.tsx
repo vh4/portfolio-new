@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { SiExpress, SiLaravel, SiNodedotjs, SiPostgresql, SiReact } from "react-icons/si";
 import { TbBrandTypescript } from "react-icons/tb";
 import { BsFiletypePhp } from "react-icons/bs";
+import { FaJava } from "react-icons/fa";
 
 interface PilihInterface {
   judul: string;
@@ -142,12 +143,11 @@ const dataJapaneseVersion = [
     image: "/images/anime.jpg",
     link_project: "",
     programming: [
-      <SiReact key="react" size={20} className="" />,
       <SiNodedotjs key="nodejs" size={20} className="" />,
       <TbBrandTypescript key="typescript" size={20} className="" />,
+      <SiExpress key="express" size={20} className="" />,
+      <FaJava key="express" size={20} className="" />,
       <SiPostgresql key="postgresql" size={20} className="" />,
-      <BsFiletypePhp key="php" size={20} className="" />,
-      <SiLaravel key="laravel" size={20} className="" />,
     ],
         link_website: "",
   },
