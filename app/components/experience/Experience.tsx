@@ -86,18 +86,6 @@ export default function Experience() {
     }
   ];
 
-  // <SiNextdotjs size={20} className=""/>
-  // <SiNodedotjs size={20} className=""/>
-  // <SiTypescript size={20} className=""/>
-  // <RiJavaLine size={20} className=""/>
-  // <BiLogoPostgresql size={20} className=""/>
-  // <SiPhp size={20} className=""/>
-  // <FaLaravel size={20} className=""/>
-  // <FaDocker size={20} className=""/>
-  // <DiGoogleCloudPlatform size={20} className=""/>
-  // <RiTailwindCssLine size={20} className=""/>
-  // <FaGitlab size={20} className=""/>
-
 const dataJapaneseVersion = [
   {
     judul: "オンライン支払い取引のサービスを開発します。",
