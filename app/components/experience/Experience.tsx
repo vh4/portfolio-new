@@ -3,6 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import { Navigation, Pagination, Mousewheel } from "swiper/modules";
 import SwiperCore from "swiper";
 import gsap from "gsap";
+import { SiExpress, SiLaravel, SiNodedotjs, SiPostgresql, SiReact } from "react-icons/si";
+import { TbBrandTypescript } from "react-icons/tb";
+import { BsFiletypePhp } from "react-icons/bs";
 
 interface PilihInterface {
   judul: string;
@@ -11,6 +14,7 @@ interface PilihInterface {
   image: string;
   link_project: string;
   link_website: string;
+  programming: any[];
 }
 
 // Install modules
@@ -20,8 +24,9 @@ export default function Experience() {
   const [pilih, setPilih] = useState<PilihInterface>({
     judul: "オンライン支払いの取引のREST API",
     category: 1,
-    description: ["さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行っています。", "ユーザー、トコペディアやアルタジャサやYUPなどの会社を統合に手伝ってあげ、エンドツーエンドのプロダクションメイド作ったAPIのユーザーを確認しており、必要なユーザーのものを合わせます", "PHPとTypeScriptを利用しており、安全なユーザー作成APIのため、JWTと暗号化（アシンメトリック・クリプトグラフィ）で統合をしており、さらにユーザーに必要なセキュリティを合わせることができます"],
+    description: ["さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行っています。", "ユーザー、トコペディアやアルタジャサやYUPなどの会社を統合に手伝ってあげ、エンドツーエンドのプロダクションメイド作ったAPIのユーザーを確認しており、必要なユーザーのものを合わせます。", "ハッキングを防ぐために、安全なREST APIのために、暗号化（アシンメトリック・クリプトグラフィとJWTセキュリティを開発するのに、TypeScriptとNode.jsを利用して用意します。"],
     image: "/images/travel.jpeg",
+    programming:[<SiNodedotjs size={20} className=""/>, <TbBrandTypescript size={20} className=""/>, <SiPostgresql size={20} className=""/>, <BsFiletypePhp size={20} className=""/>, <SiExpress size={20} className=""/>],
     link_project: "",
     link_website: "",
   });
@@ -50,7 +55,7 @@ export default function Experience() {
 
         return nextIndex;
       });
-    }, 3000); 
+    }, 10000); 
   };
 
   const stopAutoScroll = () => {
@@ -80,65 +85,58 @@ export default function Experience() {
       type: 3
     }
   ];
-  
+
+  // <SiNextdotjs size={20} className=""/>
+  // <SiNodedotjs size={20} className=""/>
+  // <SiTypescript size={20} className=""/>
+  // <RiJavaLine size={20} className=""/>
+  // <BiLogoPostgresql size={20} className=""/>
+  // <SiPhp size={20} className=""/>
+  // <FaLaravel size={20} className=""/>
+  // <FaDocker size={20} className=""/>
+  // <DiGoogleCloudPlatform size={20} className=""/>
+  // <RiTailwindCssLine size={20} className=""/>
+  // <FaGitlab size={20} className=""/>
 
 const dataJapaneseVersion = [
   {
-    judul: "オンライン支払いの取引のREST API",
+    judul: "オンライン支払い取引のサービスを開発します。",
     category: 1,
-    description: ["さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行っています。", "ユーザー、トコペディアやアルタジャサやYUPなどの会社を統合に手伝ってあげ、エンドツーエンドのプロダクションメイド作ったAPIのユーザーを確認しており、必要なユーザーのものを合わせます", "PHPとTypeScriptを利用しており、安全なユーザー作成APIのため、JWTと暗号化（アシンメトリック・クリプトグラフィ）で統合をしており、さらにユーザーに必要なセキュリティを合わせることができます"],
+    description: [
+      "さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行いました。",
+      "ユーザー、トコペディアやアルタジャサやYUPなどの会社を統合に手伝い、エンドツーエンドのプロダクションを作成したAPIのユーザーを確認し、必要なユーザーの要件に合わせました。",
+      "ハッキングを防ぐために、安全なREST APIのために、暗号化（アシンメトリック・クリプトグラフィとJWTセキュリティ）を開発するのに、TypeScriptとNode.jsを利用しました。"
+    ],    
     image: "/images/anime.jpg",
     link_project: "",
+    programming:[<SiNodedotjs size={20} className=""/>, <TbBrandTypescript size={20} className=""/>, <SiPostgresql size={20} className=""/>, <BsFiletypePhp size={20} className=""/>, <SiExpress size={20} className=""/>],
     link_website: "",
   },
   {
-    judul: "B2Bクライアント向けの旅行APIサービス",
+    judul: "オンライン旅行支払いのサービスを開発します。",
     category: 1,
-    description: ["列車、飛行機、船のチケット予約のための旅行APIサービスを設計および実装します。JWTベースの認証を使用してパートナーとのシームレスな統合を確保し、セットアップからUATまでのサポートを提供し、本番準備を行います。React.jsを使用してフロントエンドUIを設計し、直接支払いを円滑にします。"],
-    image: "",
+    description: [
+      "船や飛行機、電車などのオンライン支払いのB2B向けREST APIサービスを開発・提供しました。JWTベースの認証を使用するパートナーに対し、スムーズな統合を促進し、接続の安全性と信頼性を確保しました。",
+      "プロダクションの実装を容易に確認し、最初の設計からUATをサポートし、統合プロセス中にパートナーへ包括的なサポートを提供しました。",
+      "さらに、オンライン予約のために、シームレスなユーザー体験を確認し、UIフロントエンドを設計するのに、ReactとNode.js技術を利用しました。"
+    ],    
+    image: "/images/anime.jpg",
     link_project: "",
+    programming:[<SiReact size={20} className=""/>, <SiNodedotjs size={20} className=""/>, <TbBrandTypescript size={20} className=""/>,<SiPostgresql size={20} className=""/>, <BsFiletypePhp size={20} className=""/>, <SiLaravel size={20} className=""/>],
     link_website: "",
   },
   {
-    judul: "BCAおよびBNI Flazz統合",
+    judul: "スマートカードで消費支払い統合します。",
     category: 1,
-    description: ["BCAおよびBNI Flazzの統合をサポートするためにSDKを提供し、Node.jsを使用してモバイルやWebプラットフォームを通じたタップカード支払いのためのAPI統合を作成します。"],
-    image: "",
+    description: [
+      "具体的には、クレジットカードで飲食物の支払いに使用し、さらにどこでも支払いが簡単になるように、パートナーB2B向けのREST APIサービスを提供するために、Node.jsを利用しました。",
+      "その前に、BCA銀行とBNI銀行、そして我々のパートナーと協力し、さまざまな銀行を接続するために、REST APIで統合するように、Java Spring Bootを用いて開発しました。"
+    ],
+    image: "/images/anime.jpg",
     link_project: "",
+    programming:[<SiReact size={20} className=""/>, <SiNodedotjs size={20} className=""/>, <TbBrandTypescript size={20} className=""/>,<SiPostgresql size={20} className=""/>, <BsFiletypePhp size={20} className=""/>, <SiLaravel size={20} className=""/>],
     link_website: "",
   },
-  {
-    judul: "Otomax用のデスクトップアドオン",
-    category: 1,
-    description: ["Node.jsとElectron Builderを使用して、Otomax MySQLデータベースにデータを挿入するためのデスクトップアドオンを開発します。OtomaxはPPOB支払いのためのデスクトップGUIであり、これらのアドオンを使用してPPOB APIを実行し、パートナーがGUI内で直接コマンドを表示および使用できるようにします。"],
-    image: "",
-    link_project: "",
-    link_website: "",
-  },
-  {
-    judul: "Jabber統合用PPOBプラグイン",
-    category: 1,
-    description: ["Node.jsを使用してJabber経由で支払いトランザクションを行うためのPPOBプラグインを開発します。パートナーは事前に提供された登録アカウントフォームを使用してJabberを介してトランザクションを完了します。"],
-    image: "",
-    link_project: "",
-    link_website: "",
-  },
-  {
-    judul: "コールバックAPI",
-    category: 1,
-    description: ["TypeScriptを使用して、保留中のトランザクションを数分以内にコールバックで送信するコールバックAPIを開発します。"],
-    image: "",
-    link_project: "",
-    link_website: "",
-  },
-  {
-    judul: "トランザクション管理用ウェブレポート",
-    category: 1,
-    description: ["パートナーがトランザクションリストを表示し、クライアントに送信できなかったコールバックの再試行メカニズムを提供するウェブレポートを開発します。"],
-    image: "",
-    link_project: "",
-    link_website: "",
-  }
 ];
 
 return (
@@ -164,14 +162,26 @@ return (
         </div>
         <div className="mt-[120px] min-h-[700px] max-h-[700px] container mx-auto">
           <div className="">
-             <div className="grid grid-cols-2 gap-12">
-                <div className="ml-24 col max-h-[250px] min-h-[250px] mt-12">
-                  <div ref={deskription} className="flex p-4 space-x-2">
-                    <div className="text-xs">{pilihIndex + 1}.</div>
-                      <div className="">
+             <div className="grid grid-cols-2 gap-16">
+                <div className="ml-24 col max-h-[250px] min-h-[250px] mt-8">
+                  <div ref={deskription} className="p-4 space-x-2">
+                      <div className="flex space-x-2">
+                        <div className="text-xs">{pilihIndex + 1}.</div>
+                        <div className="">
+                          {
+                            pilih.description.map((e, i) => (
+                              <div key={i} className={`text-md tracking-wider ${i != 0 && 'mt-5'}`}>
+                                {e}
+                              </div>
+                            ))
+                          }
+                        </div>
+                      </div>
+                      <div className="pl-2 mt-5">利用技術</div>
+                      <div className="pl-2 mt-5 flex space-x-2 items-center">
                         {
-                          pilih.description.map((e, i) => (
-                            <div key={i} className={`text-md tracking-wider ${i != 0 && 'mt-5'}`}>
+                          pilih.programming.map((e, i) => (
+                            <div key={i} className={`flex space-x-4 items-center`}>
                               {e}
                             </div>
                           ))
@@ -197,10 +207,10 @@ return (
                       onMouseOut={startAutoScroll} 
                     >
                       <div className="flex space-x-2 ">
-                        <div className="judul text-xs" key={i}>{i + 1}.</div>
+                        <div className="text-xs" key={i}>{i + 1}.</div>
                         <div>
-                          <div className="judul text-xl" key={i}>{e.judul}</div>
-                          <div className="judul text-xs" key={i}>{category[e.category - 1].name}</div>
+                          <div className="text-xl" key={i}>{e.judul}</div>
+                          <div className="text-xs" key={i}>{category[e.category - 1].name}</div>
                         </div>
                       </div>
                     </div>
