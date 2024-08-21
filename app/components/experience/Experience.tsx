@@ -26,7 +26,13 @@ export default function Experience() {
     category: 1,
     description: ["さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行っています。", "ユーザー、トコペディアやアルタジャサやYUPなどの会社を統合に手伝ってあげ、エンドツーエンドのプロダクションメイド作ったAPIのユーザーを確認しており、必要なユーザーのものを合わせます。", "ハッキングを防ぐために、安全なREST APIのために、暗号化（アシンメトリック・クリプトグラフィとJWTセキュリティを開発するのに、TypeScriptとNode.jsを利用して用意します。"],
     image: "/images/travel.jpeg",
-    programming:[<SiNodedotjs size={20} className=""/>, <TbBrandTypescript size={20} className=""/>, <SiPostgresql size={20} className=""/>, <BsFiletypePhp size={20} className=""/>, <SiExpress size={20} className=""/>],
+    programming: [
+      <SiNodedotjs key="nodejs" size={20} className="" />,
+      <TbBrandTypescript key="typescript" size={20} className="" />,
+      <SiPostgresql key="postgresql" size={20} className="" />,
+      <BsFiletypePhp key="php" size={20} className="" />,
+      <SiExpress key="express" size={20} className="" />,
+    ],
     link_project: "",
     link_website: "",
   });
@@ -97,8 +103,14 @@ const dataJapaneseVersion = [
     ],    
     image: "/images/anime.jpg",
     link_project: "",
-    programming:[<SiNodedotjs size={20} className=""/>, <TbBrandTypescript size={20} className=""/>, <SiPostgresql size={20} className=""/>, <BsFiletypePhp size={20} className=""/>, <SiExpress size={20} className=""/>],
-    link_website: "",
+    programming: [
+      <SiNodedotjs key="nodejs" size={20} className="" />,
+      <TbBrandTypescript key="typescript" size={20} className="" />,
+      <SiPostgresql key="postgresql" size={20} className="" />,
+      <BsFiletypePhp key="php" size={20} className="" />,
+      <SiExpress key="express" size={20} className="" />,
+    ],
+      link_website: "",
   },
   {
     judul: "オンライン旅行支払いのサービスを開発します。",
@@ -110,7 +122,14 @@ const dataJapaneseVersion = [
     ],    
     image: "/images/anime.jpg",
     link_project: "",
-    programming:[<SiReact size={20} className=""/>, <SiNodedotjs size={20} className=""/>, <TbBrandTypescript size={20} className=""/>,<SiPostgresql size={20} className=""/>, <BsFiletypePhp size={20} className=""/>, <SiLaravel size={20} className=""/>],
+    programming: [
+      <SiReact key="react" size={20} className="" />,
+      <SiNodedotjs key="nodejs" size={20} className="" />,
+      <TbBrandTypescript key="typescript" size={20} className="" />,
+      <SiPostgresql key="postgresql" size={20} className="" />,
+      <BsFiletypePhp key="php" size={20} className="" />,
+      <SiLaravel key="laravel" size={20} className="" />,
+    ],
     link_website: "",
   },
   {
@@ -122,8 +141,15 @@ const dataJapaneseVersion = [
     ],
     image: "/images/anime.jpg",
     link_project: "",
-    programming:[<SiReact size={20} className=""/>, <SiNodedotjs size={20} className=""/>, <TbBrandTypescript size={20} className=""/>,<SiPostgresql size={20} className=""/>, <BsFiletypePhp size={20} className=""/>, <SiLaravel size={20} className=""/>],
-    link_website: "",
+    programming: [
+      <SiReact key="react" size={20} className="" />,
+      <SiNodedotjs key="nodejs" size={20} className="" />,
+      <TbBrandTypescript key="typescript" size={20} className="" />,
+      <SiPostgresql key="postgresql" size={20} className="" />,
+      <BsFiletypePhp key="php" size={20} className="" />,
+      <SiLaravel key="laravel" size={20} className="" />,
+    ],
+        link_website: "",
   },
 ];
 
