@@ -43,6 +43,8 @@ export default function Experience() {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const deskription = useRef<HTMLDivElement | null>(null);
 
+  const [categoryPilih, setCategoryPilih] = useState(0);
+
   const startAutoScroll = () => {
     intervalRef.current = setInterval(() => {
       setpilihIndex((prevIndex) => {
@@ -79,6 +81,10 @@ export default function Experience() {
   }, []);
 
   const category = [
+    {
+      name: "全部",
+      type: 0
+    },
     {
       name: "ビーマーシャクティー・企業",
       type: 1
@@ -151,6 +157,22 @@ const dataJapaneseVersion = [
     ],
         link_website: "",
   },
+  {
+    judul: "APIコールバック。",
+    category: 1,
+    description: [
+      "一つのオンライン取引や旅行のオンライン支払いが保留中の場合、その問題を処理するために、APIコールバックを開発し、用意しました。そのコールバックは自動的にユーザーのリスナーに返信しました。",
+      "さらに、APIコールバックのレスポンスフォーマットは、すべての製品で異なり、ユーザーのリクエストによって変わりました。"
+    ],
+    image: "/images/anime.jpg",
+    link_project: "",
+    programming: [
+      <SiNodedotjs key="nodejs" size={20} className="" />,
+      <TbBrandTypescript key="typescript" size={20} className="" />,
+      <SiPostgresql key="postgresql" size={20} className="" />,
+    ],
+        link_website: "",
+  },
 ];
 
 return (
@@ -164,12 +186,15 @@ return (
               <div className="text-xs">B.</div>
               <div className="judul text-4xl">PROJECTS</div>
             </div>
-            <div className="flex space-x-2 mr-12 items-end mb-2">
-              <div className="judul text-xs">全員</div>
+            <div className="flex space-x-6 mr-12 items-end mb-2">
               {category.map((e, i) => (
-                <>
-                  <div className="judul text-xs" key={i}>{e.name}</div>
-                </>
+                <div 
+                  className={`z-50 text-xs ${categoryPilih === i ? ' bg-blue-500 text-white p-1 rounded-full' : ''}`} 
+                  key={i} 
+                  onClick={() => setCategoryPilih(e.type)}
+                >
+                  {e.name}
+                </div>
               ))}
             </div>
           </div>
