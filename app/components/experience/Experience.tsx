@@ -189,7 +189,7 @@ return (
             <div className="flex space-x-6 mr-12 items-end mb-2">
               {category.map((e, i) => (
                 <div 
-                  className={`z-50 text-xs ${categoryPilih === i ? ' bg-blue-500 text-white p-1 rounded-full' : ''}`} 
+                  className={`z-50 text-xs ${categoryPilih === i ? ' border-t border-black p-1' : ''}`} 
                   key={i} 
                   onClick={() => setCategoryPilih(e.type)}
                 >

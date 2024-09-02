@@ -1,8 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Stick&family=Zen+Kurenaido&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+* {
+  color: #545454;/* フォントの色 */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kiwi Maru", serif;
+  font-weight: 300;
+  font-feature-settings: "palt";
+	letter-spacing: -1px;
+ }
+
+ body {
+  color: #545454;/* フォントの色 */
+  background: white;
+  cursor: none; /* Hide the default cursor */
+  overflow: hidden;
+
+}
+
+h1{
+  font-size: 24px;
+}
+
+input[type="submit"] {
+	font-size:16px;
+}
 
 /* styles/globals.css */
 .background-main {
@@ -65,7 +93,7 @@
   right: -14px; /* Adjust to position the circle */
   width: 30px; /* Width of the circle */
   height: 30px; /* Height of the circle */
-  border: 2px solid #e2e8f0; /* Border of the circle */
+  border: 2px solid white; /* Border of the circle */
   border-radius: 50%; /* Make it a circle */
   background-color: white; /* Background color of the circle */
   z-index: 10; /* Ensure it appears above other elements */
@@ -142,20 +170,12 @@
 }
 
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Zen Kurenaido", sans-serif ;
-  font-style: normal;
-}
-
 .text-container {
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   margin: 0px 0px 0px 150px;
   background-color: white;
-  color:black;
+  color: #545454;/* フォントの色 */
   padding: 4px 40px;
   display: flex;
   align-items: center;
@@ -176,14 +196,14 @@
   font-family: "Playfair Display", serif !important;
   font-optical-sizing: auto;
   background-color: white;
-  color:black;
+  color: #545454;/* フォントの色 */
   padding: 4px 8px;
 }
 
 .font-biasa {
   font-family: "Playfair Display", serif !important;
   font-optical-sizing: auto;
-  color:black;
+  color: #545454;/* フォントの色 */
   padding: 4px 8px;
 }
 
@@ -223,55 +243,229 @@
   text-align: center;
 }
 
-:root {
-  --foreground-rgb: #0D0D0D;
-  touch-action: pan-x pan-y;
-  height: 100% 
+/* CSS talk bubble */
+.talk-bubble {
+	margin: 40px;
+  display: inline-block;
+  position: relative;
+	width: 200px;
+	height: auto;
+	background-color: #e2e8f0;
 }
 
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: #0D0D0D;
-  }
-}
-
-body {
-  color: black;
-  background: white;
-  cursor: none; /* Hide the default cursor */
-  overflow: hidden;
+.round{
+  border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
 
 }
 
-h1{
-  font-size: 24px;
+/* Right triangle placed top left flush. */
+.tri-right.border.left-top:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -40px;
+	right: auto;
+  top: -8px;
+	bottom: auto;
+	border: 32px solid;
+	border-color: #e2e8f0 transparent transparent transparent;
+}
+.tri-right.left-top:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -20px;
+	right: auto;
+  top: 0px;
+	bottom: auto;
+	border: 22px solid;
+	border-color: #e2e8f0 transparent transparent transparent;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Right triangle, left side slightly down */
+.tri-right.border.left-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -40px;
+	right: auto;
+  top: 30px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: #e2e8f0 #e2e8f0 transparent transparent;
+}
+.tri-right.left-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -20px;
+	right: auto;
+  top: 38px;
+	bottom: auto;
+	border: 12px solid;
+	border-color: #e2e8f0 #e2e8f0 transparent transparent;
 }
 
-/* globals.css */
-.honeycomb {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -8px;
+  right: auto;
+  top: auto;
+	bottom: -40px;
+	border: 32px solid;
+	border-color: transparent transparent transparent #e2e8f0;
+}
+.tri-right.btm-left:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 0px;
+  right: auto;
+  top: auto;
+	bottom: -20px;
+	border: 22px solid;
+	border-color: transparent transparent transparent #e2e8f0;
 }
 
-.hexagon {
-  width: 100px;
-  height: 100px;
-  background: red;
-  clip-path: polygon(
-    25% 6.7%,
-    75% 6.7%,
-    100% 50%,
-    75% 93.3%,
-    25% 93.3%,
-    0% 50%
-  );
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 30px;
+  right: auto;
+  top: auto;
+	bottom: -40px;
+	border: 20px solid;
+	border-color: #e2e8f0 transparent transparent #e2e8f0;
+}
+.tri-right.btm-left-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 38px;
+  right: auto;
+  top: auto;
+	bottom: -20px;
+	border: 12px solid;
+}
+
+/*Right triangle, placed bottom right side slightly in*/
+.tri-right.border.btm-right-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: 30px;
+	bottom: -40px;
+	border: 20px solid;
+	border-color: #e2e8f0 #e2e8f0 transparent transparent;
+}
+.tri-right.btm-right-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: 38px;
+	bottom: -20px;
+	border: 12px solid;
+}
+
+.tri-right.border.btm-right:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -8px;
+	bottom: -40px;
+	border: 20px solid;
+	border-color: #e2e8f0 #e2e8f0 transparent transparent;
+}
+.tri-right.btm-right:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: 0px;
+	bottom: -20px;
+	border: 12px solid;
+}
+
+/* Right triangle, right side slightly down*/
+.tri-right.border.right-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -40px;
+  top: 30px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: #e2e8f0 transparent transparent #e2e8f0;
+}
+.tri-right.right-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -20px;
+  top: 38px;
+	bottom: auto;
+	border: 12px solid;
+}
+
+/* Right triangle placed top right flush. */
+.tri-right.border.right-top:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -40px;
+  top: -8px;
+	bottom: auto;
+	border: 32px solid;
+	border-color: #e2e8f0 transparent transparent transparent;
+}
+.tri-right.right-top:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -20px;
+  top: 0px;
+	bottom: auto;
+	border: 20px solid;
+}
+
+/* talk bubble contents */
+.talktext{
+  padding: 0.8em;
+	text-align: left;
+  line-height: 1.5em;
+}
+.talktext p{
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
 }

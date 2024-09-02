@@ -16,6 +16,11 @@ import {
   FaAngleUp,
 } from "react-icons/fa";
 import gsap from "gsap";
+import { CiBookmarkPlus, CiCalendar, CiGlobe, CiLaptop, CiUser } from "react-icons/ci";
+import { BsGenderFemale } from "react-icons/bs";
+import { PiAddressBookLight, PiLaptop } from "react-icons/pi";
+import { LiaRulerVerticalSolid, LiaUniversitySolid, LiaWeightHangingSolid } from "react-icons/lia";
+import { TfiAngleDown, TfiAngleUp } from "react-icons/tfi";
 
 export default function About() {
   const [showMore, setShowMore] = useState(false);
@@ -61,20 +66,20 @@ export default function About() {
               <h2 className="text-xl mb-2">詳細</h2>
               <ul className="list-disc pl-5 space-y-1">
                 <li className="flex items-center space-x-3">
-                  <FaUser className="" />{" "}
+                  <CiUser className="" />{" "}
                   <span>お名前: ファトーニワセソ J</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <FaCalendar className="" /> <span>年齢: 24年</span>
+                  <CiCalendar className="" /> <span>年齢: 24年</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <FaVenusMars className="" /> <span>性別: 男性</span>
+                  <BsGenderFemale className="" /> <span>性別: 男性</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <FaGlobe className="" /> <span>国: インドネシア</span>
+                  <CiGlobe className="" /> <span>国: インドネシア</span>
                 </li>
                     <li className="flex items-center space-x-3">
-                      <FaMapMarkerAlt className="" />{" "}
+                      <PiAddressBookLight className="" />{" "}
                       <span>住所: 東ジャワ州, スラバヤ</span>
                     </li>
                 <div
@@ -83,24 +88,24 @@ export default function About() {
                 >
                   <>
                     <li className="flex items-center space-x-3">
-                      <FaLaptopCode className="" />{" "}
+                      <CiLaptop className="" />{" "}
                       <span>職業: フルスタックデベロッパー</span>
                     </li>
                     <li className="flex items-center space-x-3">
-                      <FaWeight className="" /> <span>体重: 58kg</span>
+                      <LiaWeightHangingSolid className="" /> <span>体重: 58kg</span>
                     </li>
                     <li className="flex items-center space-x-3">
-                      <FaRulerVertical className="" /> <span>身長: 169cm</span>
+                      <LiaRulerVerticalSolid className="" /> <span>身長: 169cm</span>
                     </li>
                     <li className="flex items-center space-x-3">
-                      <FaBook className="" /> <span>趣味: 読書, 旅行</span>
+                      <CiBookmarkPlus className="" /> <span>趣味: 読書, 旅行</span>
                     </li>
                     <li className="flex items-center space-x-3">
-                      <FaUniversity className="" />{" "}
+                      <LiaUniversitySolid className="" />{" "}
                       <span>大学: テルコム大学</span>
                     </li>
                     <li className="flex items-center space-x-3">
-                      <FaLaptopCode className="" />{" "}
+                      <PiLaptop className="" />{" "}
                       <span>専攻: コンピュータサイエンス</span>
                     </li>
                   </>
@@ -112,11 +117,11 @@ export default function About() {
               >
                 {showMore ? (
                   <>
-                    <FaAngleUp /> <span>表示を減らす</span>
+                    <TfiAngleUp /> <span>表示を減らす</span>
                   </>
                 ) : (
                   <>
-                    <FaAngleDown /> <span>もっと見る</span>
+                    <TfiAngleDown /> <span>もっと見る</span>
                   </>
                 )}
               </div>
