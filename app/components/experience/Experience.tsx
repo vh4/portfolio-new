@@ -117,19 +117,19 @@ const dataJapaneseVersion = [
       <SiNodedotjs size={20} key="nodejs" className="hover:border hover:border-black rounded-full" />
       </div>
       </Whisper>,
-      <Whisper placement="top" trigger="hover" speaker={<Tooltip>TypeScript</Tooltip>}>
+      <Whisper placement="top" key="type" trigger="hover" speaker={<Tooltip>TypeScript</Tooltip>}>
       <div>
-      <TbBrandTypescript size={20} className="hover:border hover:border-black rounded-full" />
+      <TbBrandTypescript size={20} key="type" className="hover:border hover:border-black rounded-full" />
       </div>
       </Whisper>,
-      <Whisper placement="top" trigger="hover" speaker={<Tooltip>PostgreSQL</Tooltip>}>
+      <Whisper placement="top" key="psogrew" trigger="hover" speaker={<Tooltip>PostgreSQL</Tooltip>}>
         <div>
-        <SiPostgresql size={20} className="hover:border hover:border-black rounded-full" />
+        <SiPostgresql size={20} key="psogrew" className="hover:border hover:border-black rounded-full" />
         </div>
       </Whisper>,
-      <Whisper placement="top" trigger="hover" speaker={<Tooltip>PHP</Tooltip>}>
+      <Whisper placement="top" key="php" trigger="hover" speaker={<Tooltip>PHP</Tooltip>}>
       <div>
-      <FaPhp size={24} className="hover:border hover:border-black rounded-full" />
+      <FaPhp size={24} key="php" className="hover:border hover:border-black rounded-full" />
       </div>
     </Whisper>,
     ],
