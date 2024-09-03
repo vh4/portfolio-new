@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { BsArrowRight } from 'react-icons/bs';
 import { IoEllipsisVerticalOutline } from 'react-icons/io5';
 
 export default function Homes() {

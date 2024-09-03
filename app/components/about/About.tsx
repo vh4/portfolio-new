@@ -1,20 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  FaUser,
-  FaCalendar,
-  FaVenusMars,
-  FaGlobe,
-  FaMapMarkerAlt,
-  FaLaptopCode,
-  FaWeight,
-  FaRulerVertical,
-  FaBook,
-  FaUniversity,
-  FaAngleDown,
-  FaAngleUp,
-} from "react-icons/fa";
 import gsap from "gsap";
 import { CiBookmarkPlus, CiCalendar, CiGlobe, CiLaptop, CiUser } from "react-icons/ci";
 import { BsGenderFemale } from "react-icons/bs";
