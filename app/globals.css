@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -155,18 +156,38 @@ input[type="submit"] {
   background: #000;
 }
 
-.arrows-right {
-  position: relative; /* Ensure the element is positioned relatively for left/top properties to work */
-  animation-name: arrows-animation;
-  animation-duration: 2s;
-  animation-delay: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function:ease-out;
+.scroll .line {
+  position: relative;
+  width: 50px;
+  height: 1px;
+  background-color: rgba(var(white), 0.25);
+  overflow: hidden;
 }
 
-@keyframes arrows-animation {
-  0% { left: 0px; top: 0px; }
-  100% { left: 30px; top: 0px; opacity:0;}
+.scroll .line::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: white;
+  animation-name: scroll;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.3, 0.1, 0.1, 1);
+  animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }
 
 
@@ -205,6 +226,19 @@ input[type="submit"] {
   font-optical-sizing: auto;
   color: #545454;/* フォントの色 */
   padding: 4px 8px;
+}
+
+.khusus {
+  font-family: "Baskervville SC", serif;
+  font-optical-sizing: auto;
+  color: white;/* フォントの色 */
+  padding: 4px 8px;
+}
+
+.khusus-judul {
+  font-family: "Baskervville SC", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .judul h1 {
@@ -250,7 +284,7 @@ input[type="submit"] {
   position: relative;
 	width: 200px;
 	height: auto;
-	background-color: #e2e8f0;
+	background-color: #bfdbfe;
 }
 
 .round{
@@ -271,7 +305,7 @@ input[type="submit"] {
   top: -8px;
 	bottom: auto;
 	border: 32px solid;
-	border-color: #e2e8f0 transparent transparent transparent;
+	border-color: #bfdbfe transparent transparent transparent;
 }
 .tri-right.left-top:after{
 	content: ' ';
@@ -283,7 +317,7 @@ input[type="submit"] {
   top: 0px;
 	bottom: auto;
 	border: 22px solid;
-	border-color: #e2e8f0 transparent transparent transparent;
+	border-color: #bfdbfe transparent transparent transparent;
 }
 
 /* Right triangle, left side slightly down */
@@ -297,7 +331,7 @@ input[type="submit"] {
   top: 30px;
 	bottom: auto;
 	border: 20px solid;
-	border-color: #e2e8f0 #e2e8f0 transparent transparent;
+	border-color: #bfdbfe #bfdbfe transparent transparent;
 }
 .tri-right.left-in:after{
 	content: ' ';
@@ -309,7 +343,7 @@ input[type="submit"] {
   top: 38px;
 	bottom: auto;
 	border: 12px solid;
-	border-color: #e2e8f0 #e2e8f0 transparent transparent;
+	border-color: #bfdbfe #bfdbfe transparent transparent;
 }
 
 /*Right triangle, placed bottom left side slightly in*/
@@ -323,7 +357,7 @@ input[type="submit"] {
   top: auto;
 	bottom: -40px;
 	border: 32px solid;
-	border-color: transparent transparent transparent #e2e8f0;
+	border-color: transparent transparent transparent #bfdbfe;
 }
 .tri-right.btm-left:after{
 	content: ' ';
@@ -335,7 +369,7 @@ input[type="submit"] {
   top: auto;
 	bottom: -20px;
 	border: 22px solid;
-	border-color: transparent transparent transparent #e2e8f0;
+	border-color: transparent transparent transparent #bfdbfe;
 }
 
 /*Right triangle, placed bottom left side slightly in*/
@@ -349,7 +383,7 @@ input[type="submit"] {
   top: auto;
 	bottom: -40px;
 	border: 20px solid;
-	border-color: #e2e8f0 transparent transparent #e2e8f0;
+	border-color: #bfdbfe transparent transparent #bfdbfe;
 }
 .tri-right.btm-left-in:after{
 	content: ' ';
@@ -373,7 +407,7 @@ input[type="submit"] {
 	right: 30px;
 	bottom: -40px;
 	border: 20px solid;
-	border-color: #e2e8f0 #e2e8f0 transparent transparent;
+	border-color: #bfdbfe #bfdbfe transparent transparent;
 }
 .tri-right.btm-right-in:after{
 	content: ' ';
@@ -395,7 +429,7 @@ input[type="submit"] {
 	right: -8px;
 	bottom: -40px;
 	border: 20px solid;
-	border-color: #e2e8f0 #e2e8f0 transparent transparent;
+	border-color: #bfdbfe #bfdbfe transparent transparent;
 }
 .tri-right.btm-right:after{
 	content: ' ';
@@ -419,7 +453,7 @@ input[type="submit"] {
   top: 30px;
 	bottom: auto;
 	border: 20px solid;
-	border-color: #e2e8f0 transparent transparent #e2e8f0;
+	border-color: #bfdbfe transparent transparent #bfdbfe;
 }
 .tri-right.right-in:after{
 	content: ' ';
@@ -444,7 +478,7 @@ input[type="submit"] {
   top: -8px;
 	bottom: auto;
 	border: 32px solid;
-	border-color: #e2e8f0 transparent transparent transparent;
+	border-color: #bfdbfe transparent transparent transparent;
 }
 .tri-right.right-top:after{
 	content: ' ';

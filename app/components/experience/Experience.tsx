@@ -6,7 +6,8 @@ import gsap from "gsap";
 import { SiExpress, SiLaravel, SiNodedotjs, SiPostgresql, SiReact } from "react-icons/si";
 import { TbBrandTypescript } from "react-icons/tb";
 import { BsFiletypePhp } from "react-icons/bs";
-import { FaJava } from "react-icons/fa";
+import { FaJava, FaPhp } from "react-icons/fa";
+import { Tooltip, Whisper } from "rsuite";
 
 interface PilihInterface {
   judul: string;
@@ -101,7 +102,7 @@ export default function Experience() {
 
 const dataJapaneseVersion = [
   {
-    judul: "オンライン支払い取引のサービスを開発します。",
+    judul: "Online Payment Transactions。",
     category: 1,
     description: [
       "さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行いました。",
@@ -111,16 +112,31 @@ const dataJapaneseVersion = [
     image: "/images/anime.jpg",
     link_project: "",
     programming: [
-      <SiNodedotjs key="nodejs" size={20} className="" />,
-      <TbBrandTypescript key="typescript" size={20} className="" />,
-      <SiPostgresql key="postgresql" size={20} className="" />,
-      <BsFiletypePhp key="php" size={20} className="" />,
-      <SiExpress key="express" size={20} className="" />,
+     <Whisper placement="top" trigger="hover" key="nodejs" speaker={<Tooltip>Node.js</Tooltip>}>
+      <div>
+      <SiNodedotjs size={20} key="nodejs" className="hover:border hover:border-black rounded-full" />
+      </div>
+      </Whisper>,
+      <Whisper placement="top" trigger="hover" speaker={<Tooltip>TypeScript</Tooltip>}>
+      <div>
+      <TbBrandTypescript size={20} className="hover:border hover:border-black rounded-full" />
+      </div>
+      </Whisper>,
+      <Whisper placement="top" trigger="hover" speaker={<Tooltip>PostgreSQL</Tooltip>}>
+        <div>
+        <SiPostgresql size={20} className="hover:border hover:border-black rounded-full" />
+        </div>
+      </Whisper>,
+      <Whisper placement="top" trigger="hover" speaker={<Tooltip>PHP</Tooltip>}>
+      <div>
+      <FaPhp size={24} className="hover:border hover:border-black rounded-full" />
+      </div>
+    </Whisper>,
     ],
       link_website: "",
   },
   {
-    judul: "オンライン旅行支払いのサービスを開発します。",
+    judul: "Api Travel",
     category: 1,
     description: [
       "船や飛行機、電車などのオンライン支払いのB2B向けREST APIサービスを開発・提供しました。JWTベースの認証を使用するパートナーに対し、スムーズな統合を促進し、接続の安全性と信頼性を確保しました。",
@@ -130,17 +146,41 @@ const dataJapaneseVersion = [
     image: "/images/anime.jpg",
     link_project: "",
     programming: [
-      <SiReact key="react" size={20} className="" />,
-      <SiNodedotjs key="nodejs" size={20} className="" />,
-      <TbBrandTypescript key="typescript" size={20} className="" />,
-      <SiPostgresql key="postgresql" size={20} className="" />,
-      <BsFiletypePhp key="php" size={20} className="" />,
-      <SiLaravel key="laravel" size={20} className="" />,
+      <Whisper placement="top" trigger="hover" key="react" speaker={<Tooltip>React.js</Tooltip>}>
+      <div>
+      <SiReact size={20} key="react" className="hover:border hover:border-black rounded-full" />
+      </div>
+      </Whisper>,
+     <Whisper placement="top" trigger="hover" key="nodejs" speaker={<Tooltip>Node.js</Tooltip>}>
+     <div>
+     <SiNodedotjs size={20} key="nodejs" className="hover:border hover:border-black rounded-full" />
+     </div>
+     </Whisper>,
+      <Whisper placement="top" trigger="hover" key="typescript" speaker={<Tooltip>Typescript</Tooltip>}>
+      <div>
+      <TbBrandTypescript size={20} key="typescript" className="hover:border hover:border-black rounded-full" />
+      </div>
+      </Whisper>,
+      <Whisper placement="top" trigger="hover" key={'postgre'} speaker={<Tooltip>PostgreSQL</Tooltip>}>
+      <div>
+      <SiPostgresql size={20} key={'postgre'} className="hover:border hover:border-black rounded-full" />
+      </div>
+    </Whisper>,
+      <Whisper placement="top" trigger="hover" key={'php'} speaker={<Tooltip>PHP</Tooltip>}>
+      <div>
+      <FaPhp size={24} key={'php'} className="hover:border hover:border-black rounded-full" />
+      </div>
+    </Whisper>,
+    <Whisper placement="top" trigger="hover" key="laravel" speaker={<Tooltip>Laravel</Tooltip>}>
+      <div>
+      <SiLaravel size={24} key="laravel" className="hover:border hover:border-black rounded-full" />
+      </div>
+    </Whisper>,
     ],
     link_website: "",
   },
   {
-    judul: "スマートカードで消費支払い統合します。",
+    judul: "Smart Card Integration",
     category: 1,
     description: [
       "具体的には、クレジットカードで飲食物の支払いに使用し、さらにどこでも支払いが簡単になるように、パートナーB2B向けのREST APIサービスを提供するために、Node.jsを利用しました。",
@@ -149,16 +189,31 @@ const dataJapaneseVersion = [
     image: "/images/anime.jpg",
     link_project: "",
     programming: [
-      <SiNodedotjs key="nodejs" size={20} className="" />,
-      <TbBrandTypescript key="typescript" size={20} className="" />,
-      <SiExpress key="express" size={20} className="" />,
-      <FaJava key="express" size={20} className="" />,
-      <SiPostgresql key="postgresql" size={20} className="" />,
+      <Whisper placement="top" trigger="hover" key="nodejs" speaker={<Tooltip>Node.js</Tooltip>}>
+      <div>
+      <SiNodedotjs size={20} key="nodejs" className="hover:border hover:border-black rounded-full" />
+      </div>
+      </Whisper>,
+      <Whisper placement="top" trigger="hover" key="typescript" speaker={<Tooltip>Typescript</Tooltip>}>
+      <div>
+      <TbBrandTypescript size={20} key="typescript" className="hover:border hover:border-black rounded-full" />
+      </div>
+      </Whisper>,
+      <Whisper placement="top" trigger="hover" key="java" speaker={<Tooltip>Java</Tooltip>}>
+      <div>
+      <FaJava size={20} key="java" className="hover:border hover:border-black rounded-full" />
+      </div>
+      </Whisper>,
+      <Whisper placement="top" trigger="hover" key={'postgre'} speaker={<Tooltip>PostgreSQL</Tooltip>}>
+      <div>
+      <SiPostgresql size={20} key={'postgre'} className="hover:border hover:border-black rounded-full" />
+      </div>
+    </Whisper>,
     ],
         link_website: "",
   },
   {
-    judul: "APIコールバック。",
+    judul: "Api Callback",
     category: 1,
     description: [
       "一つのオンライン取引や旅行のオンライン支払いが保留中の場合、その問題を処理するために、APIコールバックを開発し、用意しました。そのコールバックは自動的にユーザーのリスナーに返信しました。",
@@ -167,9 +222,21 @@ const dataJapaneseVersion = [
     image: "/images/anime.jpg",
     link_project: "",
     programming: [
-      <SiNodedotjs key="nodejs" size={20} className="" />,
-      <TbBrandTypescript key="typescript" size={20} className="" />,
-      <SiPostgresql key="postgresql" size={20} className="" />,
+      <Whisper placement="top" trigger="hover" key="nodejs" speaker={<Tooltip>Node.js</Tooltip>}>
+      <div>
+      <SiNodedotjs size={20} key="nodejs" className="hover:border hover:border-black rounded-full" />
+      </div>
+      </Whisper>,
+      <Whisper placement="top" trigger="hover" key="typescript" speaker={<Tooltip>Typescript</Tooltip>}>
+      <div>
+      <TbBrandTypescript size={20} key="typescript" className="hover:border hover:border-black rounded-full" />
+      </div>
+      </Whisper>,
+      <Whisper placement="top" trigger="hover" key={'postgre'} speaker={<Tooltip>PostgreSQL</Tooltip>}>
+      <div>
+      <SiPostgresql size={20} key={'postgre'} className="hover:border hover:border-black rounded-full" />
+      </div>
+    </Whisper>,
     ],
         link_website: "",
   },
@@ -178,9 +245,9 @@ const dataJapaneseVersion = [
 return (
     <>
       <div className={`min-h-screen min-w-screen flex items-center`}>
-        <div  className="absolute top-1/2 left-0 transform -translate-y-36 translate-x-1/2 border-black flex items-center justify-center border-r min-h-[200px]">
+        <div  className="absolute top-1/2 left-0 transform -translate-y-36 translate-x-1/2 border-[#545454] flex items-center justify-center border-r min-h-[200px]">
         </div>
-        <div className="absolute top-0 right-0 min-w-[1080px] max-w-[1080px] min-h-[50px] border-b border-black translate-y-8">
+        <div className="absolute top-0 right-0 min-w-[1080px] max-w-[1080px] min-h-[50px] border-b border-[#545454] translate-y-8">
           <div className="flex justify-between">
             <div className="flex space-x-2">
               <div className="text-xs">B.</div>
@@ -189,7 +256,7 @@ return (
             <div className="flex space-x-6 mr-12 items-end mb-2">
               {category.map((e, i) => (
                 <div 
-                  className={`z-50 text-xs ${categoryPilih === i ? ' border-t border-black p-1' : ''}`} 
+                  className={`z-50 text-xs ${categoryPilih === i ? ' border-t border-[#545454] p-1' : ''}`} 
                   key={i} 
                   onClick={() => setCategoryPilih(e.type)}
                 >
@@ -232,7 +299,7 @@ return (
                   {dataJapaneseVersion.map((e, i) => (
                     <div
                       key={i}
-                      className={`px-4 py-6 ${i === pilihIndex ? 'border-b max-w-[700px] border-black' : ''}`} // Highlight current item
+                      className={`px-4 py-6 ${i === pilihIndex ? 'border-x-2 max-w-[700px] border-[#545454]' : ''}`} // Highlight current item
                       onMouseOver={() => {
                         gsap.fromTo(
                           deskription.current,
@@ -248,7 +315,7 @@ return (
                       <div className="flex space-x-2 ">
                         <div className="text-xs" key={i}>{i + 1}.</div>
                         <div>
-                          <div className="text-xl" key={i}>{e.judul}</div>
+                          <div className="text-2xl khusus-judul" key={i}>{e.judul}</div>
                           <div className="text-xs" key={i}>{category[e.category - 1].name}</div>
                         </div>
                       </div>

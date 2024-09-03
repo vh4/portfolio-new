@@ -16,10 +16,12 @@ export default function Homes() {
 		</div>
 		</div>
 		<div className="absolute bottom-0 right-0 py-12 px-24">
-		<div className="flex space-x-2 items-center ">
-			<p className="bg-opacity-75 p-2 text-white">Scroll or Drag Sideways</p>
-			<BsArrowRight size={24} className="text-white arrows-right" />
-		</div>
+			<div className="flex space-x-2 items-center text-white">
+			<p className="bg-opacity-75 p-2 text-white khusus-judul text-xl">Drag Sideways</p>
+			<div className="scroll text-white">
+				<div className="line text-white"></div>
+			</div>
+			</div>
 		</div>
 		</div>
   );

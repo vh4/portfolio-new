@@ -51,11 +51,11 @@ export default function About() {
       <div ref={containerRef} className={`min-h-screen flex mt-8`}>
         <div className="max-w-[600px] max-h-[650px] overflow-y-scroll scroll-none">
           <div className="">
-            <div className="">
-              <h1 className="text-2xl font-extrabold -ml-2">僕について</h1>
-              <div className="mt-2 border-b border-black max-w-[100px]"></div>
-					<div className="mt-1 border-b border-black max-w-[50px]"></div>
-					<div className="mt-1 border-b border-black max-w-[25px]"></div>
+            <div className="flex space-x-2 items-center">
+              <div className="flex items-center">
+                <div className="mt-2 border-b-2 border-black min-w-[20px]"></div>
+              </div>
+              <div className="text-2xl font-extrabold -ml-2 judul">ABOUT</div>
             </div>
             <div className="mt-8">
               <p>
