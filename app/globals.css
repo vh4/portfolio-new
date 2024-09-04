@@ -503,3 +503,42 @@ input[type="submit"] {
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0em;
 }
+
+.postIndex_title {
+  line-height: 1.6;
+  overflow: hidden;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+@media (min-width: 960px) {
+  .postIndex_title {
+    font-size: 12px;
+  }
+}
+
+.postIndex_title:before {
+  background-color: #f0f0f0;
+  content: "";
+  display: block;
+}
+
+.postIndex_title:before,
+.postIndex_title_bar {
+  bottom: 0;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.postIndex_title_bar {
+  background-color: #1a1a1a;
+  transform: translate3d(-100%, 0, 0);
+  transform-origin: left top;
+  transition: transform 0.5s ease;
+}
+
+.postIndex_title.active .postIndex_title_bar {
+  transform: translate3d(0%, 0, 0);
+}

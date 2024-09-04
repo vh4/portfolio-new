@@ -83,26 +83,26 @@ export default function Experience() {
 
   const category = [
     {
-      name: "全部",
+      name: "All・全部",
       type: 0
     },
     {
-      name: "ビーマーシャクティー・企業",
+      name: "Bimasakti・企業",
       type: 1
     },
     {
-      name: "テレコム・大学",
+      name: "Telkom・大学",
       type: 2
     },
     {
-      name: "エアナブ・企業",
+      name: "AirNav・企業",
       type: 3
     }
   ];
 
 const dataJapaneseVersion = [
   {
-    judul: "Online Payment Transactions。",
+    judul: "Online Payment Transactions",
     category: 1,
     description: [
       "さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行いました。",
@@ -253,17 +253,24 @@ return (
               <div className="text-xs">B.</div>
               <div className="judul text-4xl">PROJECTS</div>
             </div>
-            <div className="flex space-x-6 mr-12 items-end mb-2">
-              {category.map((e, i) => (
-                <div 
-                  className={`z-50 text-xs ${categoryPilih === i ? ' border-t border-[#545454] p-1' : ''}`} 
-                  key={i} 
-                  onClick={() => setCategoryPilih(e.type)}
-                >
-                  {e.name}
-                </div>
-              ))}
-            </div>
+              <div className="flex space-x-6 mr-12 items-end mb-2">
+                {category.map((e, i) => (
+                  <div 
+                    className={`z-50 text-xs postIndex_title ${categoryPilih === i ? 'active' : ''}`} 
+                    key={i} 
+                    onClick={() => setCategoryPilih(i)}
+                  >
+                    {e.name}
+                    <div
+                      className="postIndex_title_bar"
+                      style={{
+                        transform: categoryPilih === i ? "translate3d(0%, 0, 0)" : "translate3d(-100%, 0, 0)",
+                      }}
+                    ></div>
+                  </div>
+                ))}
+              </div>
+
           </div>
         </div>
         <div className="mt-[120px] min-h-[700px] max-h-[700px] container mx-auto">
