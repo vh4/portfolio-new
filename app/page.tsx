@@ -30,7 +30,6 @@ export default function Home() {
   const showATextIntro:any = useRef(null);
   const showATextTitleIntro:any = useRef(null);
   const borderZeroToHundredPercen:any = useRef(null);
-  const persenRef:any = useRef(null);
   const chars = useRef<HTMLDivElement[]>([]); // Inisialisasi dengan array kosong
   const showLembar:any = useRef(null);
   const animations:any = useRef(null);
@@ -46,16 +45,12 @@ export default function Home() {
   const showATextIntroMobile:any = useRef(null);
   const showATextTitleIntroMobile:any = useRef(null);
   const borderZeroToHundredPercenMobile:any = useRef(null);
-  const persenRefMobile:any = useRef(null);
   const charsMobile = useRef<HTMLDivElement[]>([]); // Inisialisasi dengan array kosong
   const showLembarMobile:any = useRef(null);
   const animationsMobile:any = useRef(null);
   const transisionMobile:any = useRef(null);
 
-  
-  const [currentPercent, setCurrentPercent] = useState(0);
 
-  const [currentPercentMobile, setCurrentPercentMobile] = useState(0);
 
   useEffect(() => {
     const handleGestureStart = (e:any) => {
@@ -103,14 +98,8 @@ export default function Home() {
       && 
       animations.current
     ) {
-      const maxPercent = 100;
   
-      const tl = gsap.timeline({
-        onUpdate: () => {
-          const progress = Math.round(tl.progress() * maxPercent);
-          setCurrentPercent(progress);
-        },
-      });
+      const tl = gsap.timeline();
   
       // First animation: showATextTitleIntro and showATextIntro
       tl.fromTo(
@@ -173,44 +162,16 @@ export default function Home() {
           },
         }
       );
-
-
-      tl.fromTo(
-        [persenRef.current],
-        { y: -76, opacity: 0 },
-        {
-          y: -48,
-          duration: 2,
-          opacity: 1,
-          stagger: {
-            each: 0.5,
-          },
-        }
-      );
   
       // Second animation: borderZeroToHundredPercen
       tl.fromTo(
         borderZeroToHundredPercen.current,
         { borderWidth: "0px", width: "0%" },
         {
-          borderWidth: "2px",
+          borderWidth: "1px",
           width: "400%",
           duration: 1,
           ease: "power2.inOut",
-          onUpdate: () => {
-            const computedStyle = window.getComputedStyle(
-              borderZeroToHundredPercen.current!
-            );
-            const width = parseFloat(computedStyle.width);
-            const parentWidth =
-              borderZeroToHundredPercen.current?.parentElement?.offsetWidth || 1;
-            const percent = Math.round((width / parentWidth) * 100);
-            setCurrentPercent(percent);
-          },
-          onComplete: () => {
-            // Ensure percentage is set to 100 when the animation completes
-            setCurrentPercent(100);
-          },
         }
       );    
 
@@ -252,14 +213,8 @@ export default function Home() {
       && 
       animationsMobile.current
     ) {
-      const maxPercent = 100;
   
-      const tl = gsap.timeline({
-        onUpdate: () => {
-          const progress = Math.round(tl.progress() * maxPercent);
-          setCurrentPercentMobile(progress);
-        },
-      });
+      const tl = gsap.timeline();
   
       // First animation: showATextTitleIntro and showATextIntro
       tl.fromTo(
@@ -337,43 +292,15 @@ export default function Home() {
         }
       );
 
-
-      tl.fromTo(
-        [persenRefMobile.current],
-        { y: -76, opacity: 0 },
-        {
-          y: -48,
-          duration: 2,
-          opacity: 1,
-          stagger: {
-            each: 0.5,
-          },
-        }
-      );
-  
       // Second animation: borderZeroToHundredPercen
       tl.fromTo(
         borderZeroToHundredPercenMobile.current,
         { borderWidth: "0px", width: "0%" },
         {
-          borderWidth: "2px",
+          borderWidth: "1px",
           width: "400%",
           duration: 1,
           ease: "power2.inOut",
-          onUpdate: () => {
-            const computedStyle = window.getComputedStyle(
-              borderZeroToHundredPercenMobile.current!
-            );
-            const width = parseFloat(computedStyle.width);
-            const parentWidth =
-              borderZeroToHundredPercenMobile.current?.parentElement?.offsetWidth || 1;
-            const percent = Math.round((width / parentWidth) * 100);
-            setCurrentPercentMobile(percent);
-          },
-          onComplete: () => {
-            // Ensure percentage is set to 100 when the animation completes
-            setCurrentPercentMobile(100);
-          },
         }
       );    
 
@@ -533,12 +460,7 @@ export default function Home() {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
         <div ref={showATextTitleIntro} className="text-intro judul text-2xl font-bold text-center opacity-0">私たちは勝つ!</div>
         <div ref={showATextIntro} className="text-intro text-md mt-2 text-center opacity-0">困難を乗り越え、笑顔で会いましょう</div>
-        <div ref={borderZeroToHundredPercen} className="mt-8 border-black max-h-[4px] absolute top-1/2 left-1/2 transform -translate-x-1/2"></div>
-        <div ref={persenRef} className="opacity-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-36 font-extrabold text-4xl judul">
-          <div className="w-32 h-32 flex items-center justify-center border-y-4 border-black">
-            {currentPercent}%
-          </div>
-        </div>
+        <div ref={borderZeroToHundredPercen} className="mt-8 border-[#545454] max-h-[1px] absolute top-1/2 left-1/2 transform -translate-x-1/2"></div>
       </div>
 
       <div className="absolute top-1/5 transform right-0 -translate-x-64 translate-y-12 z-30">
@@ -551,7 +473,7 @@ export default function Home() {
               chars.current[index] = el;
             }
           }}
-          className="mt-2 font-bold px-2"
+          className="mt-2 font-bold px-2 bg-black text-white"
         >
           {char}
         </div>
@@ -570,12 +492,7 @@ export default function Home() {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
         <div ref={showATextTitleIntroMobile} className="text-intro judul text-2xl font-bold text-center opacity-0">私たちは勝つ!</div>
         <div ref={showATextIntroMobile} className="text-intro text-md mt-2 text-center opacity-0">困難を乗り越え、笑顔で会いましょう</div>
-        <div ref={borderZeroToHundredPercenMobile} className="mt-8 border-black max-h-[4px] absolute top-1/2 left-1/2 transform -translate-x-1/2"></div>
-        <div ref={persenRefMobile} className="opacity-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-36 font-extrabold text-4xl judul">
-          <div className="w-32 h-32 flex items-center justify-center border-y-4 border-black">
-            {currentPercentMobile}%
-          </div>
-        </div>
+        <div ref={borderZeroToHundredPercenMobile} className="mt-8 border-[#545454] max-h-[1px] absolute top-1/2 left-1/2 transform -translate-x-1/2"></div>
       </div>
 
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
@@ -588,7 +505,7 @@ export default function Home() {
               charsMobile.current[index] = el;
             }
           }}
-          className="mt-2 font-bold px-2"
+          className="mt-2 font-bold px-2 bg-black text-white"
         >
           {char}
         </div>

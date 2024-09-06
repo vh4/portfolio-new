@@ -3,11 +3,12 @@ import { useEffect, useRef, useState } from "react";
 import { Navigation, Pagination, Mousewheel } from "swiper/modules";
 import SwiperCore from "swiper";
 import gsap from "gsap";
-import { SiExpress, SiLaravel, SiNodedotjs, SiPostgresql, SiReact } from "react-icons/si";
+import { SiCodeigniter, SiExpress, SiLaravel, SiNodedotjs, SiPostgresql, SiReact } from "react-icons/si";
 import { TbBrandTypescript } from "react-icons/tb";
 import { BsFiletypePhp } from "react-icons/bs";
 import { FaJava, FaPhp } from "react-icons/fa";
 import { Tooltip, Whisper } from "rsuite";
+import { IoLogoElectron } from "react-icons/io5";
 
 interface PilihInterface {
   judul: string;
@@ -237,6 +238,64 @@ const dataJapaneseVersion = [
       <SiPostgresql size={20} key={'postgre'} className="hover:border hover:border-black rounded-full" />
       </div>
     </Whisper>,
+    ],
+        link_website: "",
+  },
+  {
+    judul: "Web Report Transaction",
+    category: 1,
+    description: [
+      "このWebレポートは、ユーザーを監視・評価するために活用されました。さらに、さまざまな種類のトランザクションをこのWebレポートで表示できます。たとえば、成功や失敗などのトランザクション、送金や売上グラフ、旅行の航空券のトランザクションの返金なども表示され、APIドキュメントが用意されており、ユーザーの個人情報を変更することも可能です。",
+    ],
+    image: "/images/anime.jpg",
+    link_project: "",
+    programming: [
+      <Whisper placement="top" trigger="hover" key={'php'} speaker={<Tooltip>PHP</Tooltip>}>
+      <div>
+        <FaPhp size={24} key={'php'} className="hover:border hover:border-black rounded-full" />
+        </div>
+      </Whisper>,
+      <Whisper placement="top" trigger="hover" key={'SiCodeigniter'} speaker={<Tooltip>Codeigniter</Tooltip>}>
+      <div>
+        <SiCodeigniter size={16} key={'SiCodeigniter'} className="hover:border hover:border-black rounded-full" />
+        </div>
+      </Whisper>,
+    ],
+        link_website: "",
+  },
+  {
+    judul: "Helpdesk Wekeend",
+    category: 1,
+    description: [
+      "すべてのアプリを監視し、アプリに発生したバグ（エラー）をサポートして修正し、最後にバグやエラーのリストを記録しました。",
+    ],
+    image: "/images/anime.jpg",
+    link_project: "",
+    programming: [
+      "-"
+    ],
+        link_website: "",
+  },
+  {
+    judul: "Desktop Add-Ons",
+    category: 1,
+    description: [
+      "このプロジェクトの説明に入る前に、Otomaxソフトについて解説します。Otomaxというアプリは、クレジットやデータパッケージなどのオンライン取引を提供するもので、このソフトにはさまざまなコマンドがあり、それらには多様な種類のオンライン決済が含まれています。",
+      "このアドオンについては、新たなコマンドが追加されると、アドオンを使用して提供されます。また、アドオンの機能として、提供された新しいコマンドがユーザーデータベースに組み込まれます。"
+    ],
+    image: "/images/anime.jpg",
+    link_project: "",
+    programming: [
+      <Whisper placement="top" trigger="hover" key="nodejs" speaker={<Tooltip>Node.js</Tooltip>}>
+      <div>
+      <SiNodedotjs size={20} key="nodejs" className="hover:border hover:border-black rounded-full" />
+      </div>
+      </Whisper>,
+      <Whisper placement="top" trigger="hover" key={'IoLogoElectron'} speaker={<Tooltip>Electron</Tooltip>}>
+      <div>
+        <IoLogoElectron size={16} key={'IoLogoElectron'} className="hover:border hover:border-black rounded-full" />
+        </div>
+      </Whisper>,
     ],
         link_website: "",
   },

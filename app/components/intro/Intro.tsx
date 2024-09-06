@@ -4,7 +4,7 @@ import {  DiDocker } from "react-icons/di"
 import {  FaJava, FaLaravel, FaPhp } from "react-icons/fa"
 import { PiGitlabLogoThin, PiWhatsappLogoThin } from "react-icons/pi"
 import {  RiNextjsLine, RiTailwindCssLine } from "react-icons/ri"
-import { SiNodedotjs, SiPostgresql } from "react-icons/si"
+import { SiCodeigniter, SiNodedotjs, SiPostgresql } from "react-icons/si"
 import { TbBrandTypescript } from "react-icons/tb"
 import { Tooltip, Whisper } from 'rsuite';
 
@@ -81,7 +81,11 @@ export const Intro = () => {
 								<FaPhp size={24} className="hover:border hover:border-black rounded-full" />
 								</div>
 							</Whisper>
-
+							<Whisper placement="top" trigger="hover" key={'SiCodeigniter'} speaker={<Tooltip>SiCodeigniter</Tooltip>}>
+							<div>
+								<SiCodeigniter size={24} key={'SiCodeigniter'} className="hover:border hover:border-black rounded-full" />
+								</div>
+							</Whisper>
 							<Whisper placement="top" trigger="hover" speaker={<Tooltip>Laravel</Tooltip>}>
 								<div>
 								<FaLaravel size={20} className="hover:border hover:border-black rounded-full" />
