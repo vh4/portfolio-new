@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Navigation, Pagination, Mousewheel } from "swiper/modules";
 import SwiperCore from "swiper";
 import gsap from "gsap";
-import { SiCodeigniter, SiExpress, SiLaravel, SiNodedotjs, SiPostgresql, SiReact } from "react-icons/si";
+import { SiCodeigniter, SiExpress, SiLaravel, SiNodedotjs, SiPostgresql, SiPythonanywhere, SiReact } from "react-icons/si";
 import { TbBrandTypescript } from "react-icons/tb";
 import { BsFiletypePhp } from "react-icons/bs";
 import { FaJava, FaPhp } from "react-icons/fa";
@@ -20,87 +20,7 @@ interface PilihInterface {
   programming: any[];
 }
 
-// Install modules
-export default function Experience() {
-  SwiperCore.use([Navigation, Pagination, Mousewheel]);
-
-  const [pilih, setPilih] = useState<PilihInterface>({
-    judul: "オンライン支払いの取引のREST API",
-    category: 1,
-    description: ["さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行っています。", "ユーザー、トコペディアやアルタジャサやYUPなどの会社を統合に手伝ってあげ、エンドツーエンドのプロダクションメイド作ったAPIのユーザーを確認しており、必要なユーザーのものを合わせます。", "ハッキングを防ぐために、安全なREST APIのために、暗号化（アシンメトリック・クリプトグラフィとJWTセキュリティを開発するのに、TypeScriptとNode.jsを利用して用意します。"],
-    image: "/images/travel.jpeg",
-    programming: [
-      <SiNodedotjs key="nodejs" size={20} className="" />,
-      <TbBrandTypescript key="typescript" size={20} className="" />,
-      <SiPostgresql key="postgresql" size={20} className="" />,
-      <BsFiletypePhp key="php" size={20} className="" />,
-      <SiExpress key="express" size={20} className="" />,
-    ],
-    link_project: "",
-    link_website: "",
-  });
-
-  const [pilihIndex, setpilihIndex]  = useState(1);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const deskription = useRef<HTMLDivElement | null>(null);
-
-  const [categoryPilih, setCategoryPilih] = useState(0);
-
-  const startAutoScroll = () => {
-    intervalRef.current = setInterval(() => {
-      setpilihIndex((prevIndex) => {
-        const nextIndex = (prevIndex + 1) % dataJapaneseVersion.length;
-        setPilih(dataJapaneseVersion[nextIndex]);
-        gsap.to(containerRef.current, {
-          scrollTop: nextIndex * 100,
-          duration: 1,
-          ease: 'power2.inOut',
-        });
-
-        gsap.fromTo(
-          deskription.current,
-          { opacity: 0, x: -50 },
-          { opacity: 1, x: 0, duration: 1, ease: 'power2.inOut' }
-        );
-
-        return nextIndex;
-      });
-    }, 10000); 
-  };
-
-  const stopAutoScroll = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-  };
-
-  useEffect(() => {
-    startAutoScroll();
-
-    return () => stopAutoScroll();
-  }, []);
-
-  const category = [
-    {
-      name: "All・全部",
-      type: 0
-    },
-    {
-      name: "Bimasakti・企業",
-      type: 1
-    },
-    {
-      name: "Telkom・大学",
-      type: 2
-    },
-    {
-      name: "AirNav・企業",
-      type: 3
-    }
-  ];
-
+//data
 const dataJapaneseVersion = [
   {
     judul: "Online Payment Transactions",
@@ -264,7 +184,7 @@ const dataJapaneseVersion = [
         link_website: "",
   },
   {
-    judul: "Helpdesk Wekeend",
+    judul: "Support Team",
     category: 1,
     description: [
       "すべてのアプリを監視し、アプリに発生したバグ（エラー）をサポートして修正し、最後にバグやエラーのリストを記録しました。",
@@ -293,13 +213,136 @@ const dataJapaneseVersion = [
       </Whisper>,
       <Whisper placement="top" trigger="hover" key={'IoLogoElectron'} speaker={<Tooltip>Electron</Tooltip>}>
       <div>
-        <IoLogoElectron size={16} key={'IoLogoElectron'} className="hover:border hover:border-black rounded-full" />
+        <IoLogoElectron size={20} key={'IoLogoElectron'} className="hover:border hover:border-black rounded-full" />
+        </div>
+      </Whisper>,
+    ],
+        link_website: "",
+  },
+  {
+    judul: "Aerodrome Terminal text to speech",
+    category: 3,
+    description: [
+      `航空機向けの天気情報通知や監視を行うエアロドロームATISのようなシステムサービスを作って開発し、正確なデータ送信を確認します`
+    ],
+    image: "/images/anime.jpg",
+    link_project: "",
+    programming: [
+      <Whisper placement="top" trigger="hover" key={'SiPython'} speaker={<Tooltip>Python</Tooltip>}>
+      <div>
+        <SiPythonanywhere size={20} key={'SiPython'} className="hover:border hover:border-black rounded-full" />
         </div>
       </Whisper>,
     ],
         link_website: "",
   },
 ];
+
+// Install modules
+export default function Experience() {
+  SwiperCore.use([Navigation, Pagination, Mousewheel]);
+
+  const [pilih, setPilih] = useState<PilihInterface>({
+    judul: "オンライン支払いの取引のREST API",
+    category: 1,
+    description: ["さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行っています。", "ユーザー、トコペディアやアルタジャサやYUPなどの会社を統合に手伝ってあげ、エンドツーエンドのプロダクションメイド作ったAPIのユーザーを確認しており、必要なユーザーのものを合わせます。", "ハッキングを防ぐために、安全なREST APIのために、暗号化（アシンメトリック・クリプトグラフィとJWTセキュリティを開発するのに、TypeScriptとNode.jsを利用して用意します。"],
+    image: "/images/travel.jpeg",
+    programming: [
+      <SiNodedotjs key="nodejs" size={20} className="" />,
+      <TbBrandTypescript key="typescript" size={20} className="" />,
+      <SiPostgresql key="postgresql" size={20} className="" />,
+      <BsFiletypePhp key="php" size={20} className="" />,
+      <SiExpress key="express" size={20} className="" />,
+    ],
+    link_project: "",
+    link_website: "",
+  });
+
+  const [pilihIndex, setpilihIndex]  = useState(1);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const deskription = useRef<HTMLDivElement | null>(null);
+  const list = useRef<HTMLDivElement | null>(null);
+
+  const [categoryPilih, setCategoryPilih] = useState(0);
+  const [data, setData] = useState<PilihInterface[]>(dataJapaneseVersion);
+
+  useEffect(() => {
+
+    setData(dataJapaneseVersion);
+
+  }, []);
+
+  const startAutoScroll = () => {
+    intervalRef.current = setInterval(() => {
+      setpilihIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % data.length;
+        setPilih(data[nextIndex]);
+        gsap.to(containerRef.current, {
+          scrollTop: nextIndex * 100,
+          duration: 1,
+          ease: 'power2.inOut',
+        });
+
+        gsap.fromTo(
+          deskription.current,
+          { opacity: 0, x: -50 },
+          { opacity: 1, x: 0, duration: 1, ease: 'power2.inOut' }
+        );
+
+        return nextIndex;
+      });
+    }, 10000); 
+  };
+
+  const stopAutoScroll = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    startAutoScroll();
+
+    return () => stopAutoScroll();
+  }, []);
+
+  const category = [
+    {
+      name: "All・全部",
+      type: 0
+    },
+    {
+      name: "Bimasakti・企業",
+      type: 1
+    },
+    {
+      name: "Telkom・大学",
+      type: 2
+    },
+    {
+      name: "AirNav・企業",
+      type: 3
+    }
+  ];
+
+
+
+function funcPilihByCategory(i: number): void {
+  setCategoryPilih(i);
+  if(i == 0 ){
+    setData(
+      dataJapaneseVersion
+    );
+  }else{
+    setData(
+      dataJapaneseVersion.filter((e) => e.category == i)
+    );
+  }
+
+}
+
 
 return (
     <>
@@ -314,11 +357,19 @@ return (
             </div>
               <div className="flex space-x-6 mr-12 items-end mb-2">
                 {category.map((e, i) => (
-                  <div 
-                    className={`z-50 text-xs postIndex_title ${categoryPilih === i ? 'active' : ''}`} 
-                    key={i} 
-                    onClick={() => setCategoryPilih(i)}
-                  >
+                      <div 
+                        className={`z-50 text-xs postIndex_title ${categoryPilih === i ? 'active' : ''}`} 
+                        key={i} 
+                        onClick={() => {
+                          funcPilihByCategory(i);
+                          gsap.fromTo(
+                            containerRef.current,
+                            { opacity: 0},
+                            { opacity: 1, duration: 1, ease: 'power2.inOut' }
+                          );
+                        }}  // Pastikan 'i' adalah string
+                      >
+
                     {e.name}
                     <div
                       className="postIndex_title_bar"
@@ -362,7 +413,7 @@ return (
                   </div>
                 </div>
                 <div ref={containerRef}  className="col min-h-[550px] max-h-[550px] overflow-auto scroll-none">
-                  {dataJapaneseVersion.map((e, i) => (
+                  {data.map((e, i) => (
                     <div
                       key={i}
                       className={`px-4 py-6 ${i === pilihIndex ? 'border-x-2 max-w-[700px] border-[#545454]' : ''}`} // Highlight current item
@@ -378,11 +429,12 @@ return (
                       }}
                       onMouseOut={startAutoScroll} 
                     >
-                      <div className="flex space-x-2 ">
+                      <div
+                       className="flex space-x-2 ">
                         <div className="text-xs" key={i}>{i + 1}.</div>
                         <div>
                           <div className="text-2xl khusus-judul" key={i}>{e.judul}</div>
-                          <div className="text-xs" key={i}>{category[e.category - 1].name}</div>
+                          <div className="text-xs" key={i}>{category[categoryPilih].name}</div>
                         </div>
                       </div>
                     </div>
