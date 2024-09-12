@@ -245,7 +245,7 @@ export default function Experience() {
   const [pilih, setPilih] = useState<PilihInterface>({
     judul: "オンライン支払いの取引のREST API",
     category: 1,
-    description: ["さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行っています。", "ユーザー、トコペディアやアルタジャサやYUPなどの会社を統合に手伝ってあげ、エンドツーエンドのプロダクションメイド作ったAPIのユーザーを確認しており、必要なユーザーのものを合わせます。", "ハッキングを防ぐために、安全なREST APIのために、暗号化（アシンメトリック・クリプトグラフィとJWTセキュリティを開発するのに、TypeScriptとNode.jsを利用して用意します。"],
+    description: ["さまざまな種類のオンライン支払い、たとえばゲームや電気代や税金の取引などのために、REST APIを開発し、維持し、ユーザーとの統合を行っています。", "ユーザー、TOKOPEDIA(GOTO)やARTAJASAやYUPなどの会社を統合に手伝ってあげ、エンドツーエンドのプロダクションメイド作ったAPIのユーザーを確認しており、必要なユーザーのものを合わせます。", "ハッキングを防ぐために、安全なREST APIのために、暗号化（アシンメトリック・クリプトグラフィとJWTセキュリティを開発するのに、TypeScriptとNode.jsを利用して用意します。"],
     image: "/images/travel.jpeg",
     programming: [
       <SiNodedotjs key="nodejs" size={20} className="" />,
